@@ -2,6 +2,7 @@ import React from 'react';
 
 import classes from './NavigationItems.module.css';
 import NavigationItem from './NavigationItem/NavigationItem';
+import ProfileImage from './NavigationItem/ProfileImage/ProfileImage';
 
 const navigationItems = (props) => {
   return (
@@ -18,6 +19,7 @@ const navigationItems = (props) => {
       <NavigationItem link="/">
         Setările contului
       </NavigationItem>
+      <ProfileImage />
     </ul>
   );
 }
