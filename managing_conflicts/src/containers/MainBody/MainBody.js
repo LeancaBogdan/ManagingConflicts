@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import TopBar from '../../components/TopBar/TopBar';
+import CardsGrid from '../../components/CardsGrid/CardsGrid';
 
 class MainBody extends Component {
   state = {
@@ -25,6 +26,7 @@ class MainBody extends Component {
           showBrochures={this.state.showBrochures}
           toggleClicked={this.toggleHandler}
           search={this.searchHandler}/>
+        <CardsGrid />
       </Auxiliary>
     );
   }
