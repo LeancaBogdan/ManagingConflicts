@@ -1,6 +1,5 @@
 import React from 'react';
 
-import classes from './App.module.css';
 import Layout from './hoc/Layout/Layout';
 import MainBody from './containers/MainBody/MainBody';
 

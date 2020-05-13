@@ -14,12 +14,17 @@ class MainBody extends Component {
     this.setState((prevState) => { return {showBrochures: !prevState.showBrochures}});
   }
 
+  searchHandler = (event) => {
+    console.log(event.target.value)
+  }
+
   render() {
     return (
       <Auxiliary>
         <TopBar 
           showBrochures={this.state.showBrochures}
-          toggleClicked={this.toggleHandler}/>
+          toggleClicked={this.toggleHandler}
+          search={this.searchHandler}/>
       </Auxiliary>
     );
   }

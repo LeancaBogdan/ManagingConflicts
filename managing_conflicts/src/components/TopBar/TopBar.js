@@ -2,6 +2,7 @@ import React from 'react';
 
 import classes from './TopBar.module.css';
 import ToggleBar from './ToggleBar/ToggleBar';
+import Search from '../TopBar/Search/Search';
 
 const topBar = (props) => {
   return (
@@ -9,6 +10,9 @@ const topBar = (props) => {
       <ToggleBar 
         showBrochures={props.showBrochures}
         toggleClicked={props.toggleClicked}/>
+      <Search 
+        className={classes.Search}
+        search={props.search}/>
     </div>
   );
 }
