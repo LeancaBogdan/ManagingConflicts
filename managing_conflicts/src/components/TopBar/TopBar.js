@@ -7,12 +7,10 @@ import Search from '../TopBar/Search/Search';
 const topBar = (props) => {
   return (
     <div className={classes.TopBar}>
-      <ToggleBar 
+      <ToggleBar className={classes.Toggle}
         showBrochures={props.showBrochures}
         toggleClicked={props.toggleClicked}/>
-      <Search 
-        className={classes.Search}
-        search={props.search}/>
+      <Search search={props.search}/>
     </div>
   );
 }

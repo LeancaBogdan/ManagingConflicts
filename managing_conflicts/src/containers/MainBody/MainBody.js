@@ -76,6 +76,8 @@ class MainBody extends Component {
   state = {
     brochures: [...brochures_dummy],
     scenarios: [...scenarios_dummy],
+    filteredBrochures: [...brochures_dummy],
+    filteredScenarios: [...scenarios_dummy],
     showBrochures: true,
   }
 
@@ -84,7 +86,22 @@ class MainBody extends Component {
   }
 
   searchHandler = (event) => {
-    console.log(event.target.value)
+    const input = event.target.value
+    if (this.state.showBrochures) {
+      const allBrochures = [...this.state.brochures]
+      const filteredBrochures = allBrochures.filter( brochure => {
+        return brochure.name.toLowerCase().includes(input.toLowerCase())
+      })
+
+      this.setState({filteredBrochures: filteredBrochures})
+    } else {
+      const allScenarios = [...this.state.scenarios]
+      const filteredScenarios = allScenarios.filter( scenario => {
+        return scenario.name.toLowerCase().includes(input.toLowerCase())
+      })
+
+      this.setState({filteredScenarios: filteredScenarios})
+    }
   }
 
   render() {
@@ -96,8 +113,8 @@ class MainBody extends Component {
           search={this.searchHandler}/>
         <CardsGrid 
           showBrochures={this.state.showBrochures}
-          brochures={this.state.brochures}
-          scenarios={this.state.scenarios}/>
+          brochures={this.state.filteredBrochures}
+          scenarios={this.state.filteredScenarios}/>
       </Auxiliary>
     );
   }
