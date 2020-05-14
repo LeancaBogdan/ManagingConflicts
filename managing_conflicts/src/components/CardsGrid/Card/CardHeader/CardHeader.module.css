@@ -7,3 +7,11 @@
   align-items: center;
 }
 
+.LeftElement {
+  margin-left: 5px;
+}
+
+.RightElement {
+  margin-right: 5px;
+}
+

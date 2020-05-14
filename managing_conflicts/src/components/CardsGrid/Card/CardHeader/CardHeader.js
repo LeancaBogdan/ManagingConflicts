@@ -5,11 +5,11 @@ import { Delete, Edit, MoreHoriz } from '@material-ui/icons';
 
 const cardHeader = (props) => {
 
-  const rightCorner = props.type === "brochure" ? <Edit /> : <MoreHoriz />
+  const rightCorner = props.type === "brochure" ? <MoreHoriz className={classes.RightElement}/> : <Edit className={classes.RightElement}/>
 
   return (
     <div className={classes.CardHeader}>
-      <Delete />
+      <Delete className={classes.LeftElement}/>
       <p><strong>{props.title}</strong></p>
       {rightCorner}
     </div>
