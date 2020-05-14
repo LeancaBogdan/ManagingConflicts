@@ -17,7 +17,8 @@ const toggleItem = (props) => {
   return (
     <button 
       className={attachedClasses.join(' ')}
-      onClick={props.toggleClicked}>{props.children}</button>
+      onClick={props.toggleClicked}
+      disabled={props.active}>{props.children}</button>
   );
 }
 
