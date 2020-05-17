@@ -1,6 +1,7 @@
 import React from 'react';
 
 import classes from './Scenario.module.css';
+import Add from './../UI/Add/Add';
 
 const scenario = (props) => {
   return (
@@ -13,6 +14,7 @@ const scenario = (props) => {
         <p className={classes.Text}>Descrierea scenariului:</p>
         <input></input>
       </div>
+      <Add clicked={props.addScenarioClicked}>Creează o întrebare nouă</Add> 
     </div>
   );
 }
