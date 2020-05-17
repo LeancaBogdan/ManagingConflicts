@@ -1,0 +1,28 @@
+.Scenario {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.Title, .Description{
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.Text {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+input {
+  font-size: 20px;
+  margin-left: 100px;
+  height: 40px;
+}
+
+.Description input {
+  height: 200px;
+}
