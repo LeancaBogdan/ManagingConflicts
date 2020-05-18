@@ -1,0 +1,14 @@
+.TopBar {
+  margin: 0;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.Toggle {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}

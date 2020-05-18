@@ -1,0 +1,17 @@
+.CardHeader {
+  width: 100%;
+  height: 35px;
+  background-color: peru;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.LeftElement {
+  margin-left: 5px;
+}
+
+.RightElement {
+  margin-right: 5px;
+}
+
