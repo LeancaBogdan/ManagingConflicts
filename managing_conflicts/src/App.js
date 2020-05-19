@@ -1,14 +1,15 @@
 import React from 'react';
 
-import classes from './App.module.css';
 import Layout from './hoc/Layout/Layout';
+
 import ClientLayout from './hoc/ClientLayout/ClientLayout'
+import MainBody from './containers/MainBody/MainBody';
 
 function App() {
   return (
     //<ClientLayout/>
     <Layout>
-    <p>Body</p>
+      <MainBody />
     </Layout>
   );
 }
