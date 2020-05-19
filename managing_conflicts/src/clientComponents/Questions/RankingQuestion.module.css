@@ -1,0 +1,27 @@
+.Question{
+    margin-top: 0;
+    /* background-color: #123456; */
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.QuestionHeader{
+    /* background-color: #ff00b3; */
+    position: relative;
+}
+
+.QuestionAnswers{
+    /* background-color: #ffff37; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.QuestionAnswer{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
