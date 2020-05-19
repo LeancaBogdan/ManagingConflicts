@@ -1,0 +1,15 @@
+.ModalTitle {
+  margin: 0;
+  width: 100%;
+  height: auto;
+  border-bottom: 3px solid black;
+}
+
+.Button {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+

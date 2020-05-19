@@ -1,11 +1,10 @@
 .Add {
-  width: auto;
+  width: fit-content;
   height: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
   color: blue;
-  padding-left: 25px;
   margin-top: 25px;
   cursor: pointer;
 }
