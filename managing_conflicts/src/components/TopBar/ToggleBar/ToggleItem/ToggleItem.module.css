@@ -3,22 +3,27 @@
   height: 90%;
   text-align: center;
   color: black;
-  background-color: burlywood;
+  background-color: white;
   font-size: larger;
-  border: 0px;
+  border: 1px solid black;
+
 }
 
 .Active {
-  color: white;
-  background-color: black;
+  color: black;
+  background-color: burlywood;
 }
 
 .Left {
   border-bottom-left-radius: 5%;
   border-top-left-radius: 5%;
+  border-right: 0px solid black;
+
 }
 
 .Right {
   border-bottom-right-radius: 5%;
   border-top-right-radius: 5%;
+  border-left: 0px solid black;
+
 }
