@@ -5,6 +5,44 @@
   border-bottom: 3px solid black;
 }
 
+.Question {
+  height: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Question input {
+  height: 100%;
+  width: 100%;
+  font-size: 15px;
+  margin-left: 10px;
+  padding-left: 8px;
+}
+
+.Type {
+  height: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Type select {
+  height: 100%;
+  width: 50%;
+  font-size: 15px;
+  margin-left: 10px;
+  padding-left: 8px;
+}
+
+.Options {
+  margin-bottom: 20px;
+}
+
 .Button {
   margin-top: 10px;
   display: flex;

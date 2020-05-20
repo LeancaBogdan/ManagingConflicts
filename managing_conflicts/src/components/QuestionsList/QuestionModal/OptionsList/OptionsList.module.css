@@ -1,0 +1,6 @@
+.OptionsList {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  margin: 15px;
+}

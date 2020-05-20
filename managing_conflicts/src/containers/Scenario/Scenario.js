@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createContext } from 'react';
 
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import Modal from '../../components/UI/Modal/Modal';
@@ -10,17 +10,17 @@ const questions = [
   {
     question: "Ce sex crezi ca are pesonajul implicat? Ce sex crezi ca are pesonajul implicat? Ce sex crezi ca are pesonajul implicat?",
     type: "binary",
-    answers: []
+    options: null
   },
   {
     question: "Ce sex crezi ca are pesonajul implicat?",
     type: "binary",
-    answers: []
+    options: null
   },
   {
     question: "Ce sex crezi ca are pesonajul implicat?",
     type: "binary",
-    answers: []
+    options: null
   }
 ]
 
@@ -29,13 +29,17 @@ class Scenario extends Component {
     name: '',
     description: '',
     questions: questions,
-    currentQuestion: null,
+    currentQuestion: {
+      question: '',
+      type: '',
+      options: null,
+    },
     actionType: 'create',
     showModal: false,
     newQuestion: {
       question: '',
       type: '',
-      answers: null
+      options: null,
     }
   }
 
@@ -44,11 +48,24 @@ class Scenario extends Component {
   }
 
   addScenarioCancelHandler = () => {
-    this.setState({showModal: false})
+    const newQuestion = {
+      question: '',
+      type: '',
+      options: null,
+    }
+    this.setState({showModal: false, newQuestion: newQuestion})
   }
 
   addScenarioHandler = () => {
-    alert("O noua intrebare va fi adaugata")
+    const question = {...this.state.newQuestion}
+    const questions = [...this.state.questions]
+    questions.push(question)
+    const newQuestion = {
+      question: '',
+      type: '',
+      options: null,
+    }
+    this.setState({questions: questions, newQuestion: newQuestion, showModal: false})
   }
 
   questionChangedHandler = (event) => {
@@ -56,25 +73,50 @@ class Scenario extends Component {
     const updatedQuestion = {...this.state.newQuestion}
     updatedQuestion.question = newQuestion
     this.setState({newQuestion: updatedQuestion})
-    console.log(newQuestion)
-    console.log(this.state)
   }
 
   typeChangedHandler = (event) => {
     const newType = event.target.value
     const updatedQuestion = {...this.state.newQuestion}
     updatedQuestion.type = newType
+    if ( newType === "binary" || newType === "likert") {
+      updatedQuestion.options = { 
+        1: "",
+        2: "",
+      }
+    }
     this.setState({newQuestion: updatedQuestion})
-    console.log(updatedQuestion)
-    console.log(this.state.newQuestion)
   }
 
   editQuestionHandler = (index) => {
-    this.setState({showModal: true, actionType: 'edit'})
+    const questions = this.state.questions
+    const currentQuestion = questions[index]
+    this.setState({currentQuestion: currentQuestion, showModal: true, actionType: 'edit'})
   }
 
   removeQuestionHandler = (index) => {
+    const updatedQuestions = [...this.state.questions]
+    updatedQuestions.splice(index, 1)
+    this.setState({questions: updatedQuestions})
+  }
 
+  addOptionHandler = (key) => {
+    key = parseInt(key)
+    const updatedQuestion = {...this.state.newQuestion}
+    updatedQuestion.options[key+1] = ""
+    this.setState({newQuestion: updatedQuestion})
+  }
+
+  removeOptionHandler = (key) => {
+    let updatedQuestion = {...this.state.newQuestion}
+    delete updatedQuestion.options[key]
+    this.setState({newQuestion: updatedQuestion})
+  }
+
+  editOptionHandler = (key, event) => {
+    const updatedQuestion = {...this.state.newQuestion}
+    updatedQuestion.options[key] = event.target.value
+    this.setState({newQuestion: updatedQuestion})
   }
 
   render() {
@@ -86,10 +128,15 @@ class Scenario extends Component {
             <QuestionModal 
               action={this.state.actionType}
               questionType={this.state.newQuestion.type}
+              options={this.state.newQuestion.options}
               questionChanged={this.questionChangedHandler}
               typeChanged={this.typeChangedHandler}
               canceled={this.addScenarioCancelHandler}
               saved={this.addScenarioHandler}
+              plusClicked={this.addOptionHandler}
+              minusClicked={this.removeOptionHandler}
+              optionEdited={this.editOptionHandler}
+              currentQuestion={this.state.currentQuestion}
               />
           </Modal>
         <Add clicked={this.addScenarioClicked}>Creează o întrebare nouă</Add>
