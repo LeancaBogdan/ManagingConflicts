@@ -1,5 +1,6 @@
 import React, { Component, createContext } from 'react';
 
+import classes from './Scenario.module.css';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import Modal from '../../components/UI/Modal/Modal';
 import Add from '../../components/UI/Add/Add';
@@ -10,17 +11,26 @@ const questions = [
   {
     question: "Ce sex crezi ca are pesonajul implicat? Ce sex crezi ca are pesonajul implicat? Ce sex crezi ca are pesonajul implicat?",
     type: "binary",
-    options: null
+    options: {
+      1: "Masculin",
+      2: "Feminin"
+    }
   },
   {
     question: "Ce sex crezi ca are pesonajul implicat?",
     type: "binary",
-    options: null
+    options: {
+      1: "Masculin",
+      2: "Feminin"
+    }
   },
   {
     question: "Ce sex crezi ca are pesonajul implicat?",
     type: "binary",
-    options: null
+    options: {
+      1: "Masculin",
+      2: "Feminin"
+    }
   }
 ]
 
@@ -36,28 +46,23 @@ class Scenario extends Component {
     },
     actionType: 'create',
     showModal: false,
-    newQuestion: {
-      question: '',
-      type: '',
-      options: null,
-    }
   }
 
-  addScenarioClicked = () => {
+  addQuestionClicked = () => {
     this.setState({showModal: true, actionType: 'create'})
   }
 
-  addScenarioCancelHandler = () => {
+  addQuestionCancelHandler = () => {
     const newQuestion = {
       question: '',
       type: '',
       options: null,
     }
-    this.setState({showModal: false, newQuestion: newQuestion})
+    this.setState({showModal: false, currentQuestion: newQuestion})
   }
 
-  addScenarioHandler = () => {
-    const question = {...this.state.newQuestion}
+  addQuestionHandler = () => {
+    const question = {...this.state.currentQuestion}
     const questions = [...this.state.questions]
     questions.push(question)
     const newQuestion = {
@@ -65,19 +70,23 @@ class Scenario extends Component {
       type: '',
       options: null,
     }
-    this.setState({questions: questions, newQuestion: newQuestion, showModal: false})
+    this.setState({questions: questions, currentQuestion: newQuestion, showModal: false})
+  }
+
+  editQuestion = () => {
+    //TO DO
   }
 
   questionChangedHandler = (event) => {
     const newQuestion = event.target.value
-    const updatedQuestion = {...this.state.newQuestion}
+    const updatedQuestion = {...this.state.currentQuestion}
     updatedQuestion.question = newQuestion
-    this.setState({newQuestion: updatedQuestion})
+    this.setState({currentQuestion: updatedQuestion})
   }
 
   typeChangedHandler = (event) => {
     const newType = event.target.value
-    const updatedQuestion = {...this.state.newQuestion}
+    const updatedQuestion = {...this.state.currentQuestion}
     updatedQuestion.type = newType
     if ( newType === "binary" || newType === "likert") {
       updatedQuestion.options = { 
@@ -85,7 +94,7 @@ class Scenario extends Component {
         2: "",
       }
     }
-    this.setState({newQuestion: updatedQuestion})
+    this.setState({currentQuestion: updatedQuestion})
   }
 
   editQuestionHandler = (index) => {
@@ -102,21 +111,31 @@ class Scenario extends Component {
 
   addOptionHandler = (key) => {
     key = parseInt(key)
-    const updatedQuestion = {...this.state.newQuestion}
+    const updatedQuestion = {...this.state.currentQuestion}
     updatedQuestion.options[key+1] = ""
-    this.setState({newQuestion: updatedQuestion})
+    this.setState({currentQuestion: updatedQuestion})
   }
 
   removeOptionHandler = (key) => {
-    let updatedQuestion = {...this.state.newQuestion}
+    let updatedQuestion = {...this.state.currentQuestion}
     delete updatedQuestion.options[key]
-    this.setState({newQuestion: updatedQuestion})
+    this.setState({currentQuestion: updatedQuestion})
   }
 
   editOptionHandler = (key, event) => {
-    const updatedQuestion = {...this.state.newQuestion}
+    const updatedQuestion = {...this.state.currentQuestion}
     updatedQuestion.options[key] = event.target.value
-    this.setState({newQuestion: updatedQuestion})
+    this.setState({currentQuestion: updatedQuestion})
+  }
+
+  scenarioNameChangedHander = (event) => {
+    const newName = event.target.value
+    this.setState({name: newName})
+  }
+
+  scenarioDescriptionChangedHandler = (event) => {
+    const newDescription = event.target.value
+    this.setState({description: newDescription})
   }
 
   render() {
@@ -124,22 +143,32 @@ class Scenario extends Component {
       <Auxiliary>
         <Modal
           show={this.state.showModal}
-          modalClosed={this.addScenarioCancelHandler}>
+          modalClosed={this.addQuestionCancelHandler}>
             <QuestionModal 
+              currentQuestion={this.state.currentQuestion}
               action={this.state.actionType}
-              questionType={this.state.newQuestion.type}
-              options={this.state.newQuestion.options}
               questionChanged={this.questionChangedHandler}
               typeChanged={this.typeChangedHandler}
-              canceled={this.addScenarioCancelHandler}
-              saved={this.addScenarioHandler}
+              canceled={this.addQuestionCancelHandler}
+              saved={this.addQuestionHandler}
+              edited={this.editQuestion}
               plusClicked={this.addOptionHandler}
               minusClicked={this.removeOptionHandler}
               optionEdited={this.editOptionHandler}
-              currentQuestion={this.state.currentQuestion}
+              
               />
           </Modal>
-        <Add clicked={this.addScenarioClicked}>Creează o întrebare nouă</Add>
+        <div className={classes.ScenarioName}>
+          <label>Numele scenariului:</label>
+          <input 
+            value={this.state.name} onChange={this.scenarioNameChangedHander}/>
+        </div>
+        <div className={classes.ScenarioDescription}>
+          <label>Descrierea scenariului:</label>
+          <textarea 
+            value={this.state.description} onChange={this.scenarioDescriptionChangedHandler}/>
+        </div>
+        <Add clicked={this.addQuestionClicked}>Creează o întrebare nouă</Add>
         <QuestionsList 
           questions={this.state.questions} 
           editQuestion={this.editQuestionHandler}
