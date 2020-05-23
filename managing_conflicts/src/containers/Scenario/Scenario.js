@@ -1,4 +1,4 @@
-import React, { Component, createContext } from 'react';
+import React, { Component } from 'react';
 
 import classes from './Scenario.module.css';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
