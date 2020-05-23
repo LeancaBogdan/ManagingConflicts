@@ -104,6 +104,10 @@ class MainBody extends Component {
     }
   }
 
+  emptyCardClickedHandler = () => {
+    console.log("clicked")
+  }
+
   render() {
     return (
       <Auxiliary>
@@ -114,7 +118,8 @@ class MainBody extends Component {
         <CardsGrid 
           showBrochures={this.state.showBrochures}
           brochures={this.state.filteredBrochures}
-          scenarios={this.state.filteredScenarios}/>
+          scenarios={this.state.filteredScenarios}
+          emptyClicked={this.emptyCardClickedHandler}/>
       </Auxiliary>
     );
   }

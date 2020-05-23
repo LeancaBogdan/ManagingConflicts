@@ -2,9 +2,12 @@ import React from 'react';
 
 import classes from './CardsGrid.module.css';
 import Card from './Card/Card';
+import EmptyCard from './EmptyCard/EmptyCard'
 
 const cardsGrid = (props) => {
   let cards = []
+  const type = props.showBrochures ? "brochure" : "scenario"
+
   if (props.showBrochures) {
     cards = props.brochures.map(brochure => {
       const scenarios =[]
@@ -31,6 +34,8 @@ const cardsGrid = (props) => {
 
   return (
     <div className={classes.CardsGrid}>
+      <EmptyCard 
+        clicked={props.emptyClicked}/>
       {cards}
     </div>
   );

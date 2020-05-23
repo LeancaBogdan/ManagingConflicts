@@ -4,7 +4,6 @@ import classes from './QuestionModal.module.css';
 import Auxiliary from '../../../hoc/Auxiliary/Auxiliary';
 import Button from '../../UI/Button/Button';
 import OptionsList from './OptionsList/OptionsList';
-import { Hidden } from '@material-ui/core';
 
 const questionModal = (props) => {
   const title = props.action === "create" ? "Creează o întrebare nouă" : "Editează aceasta întrebare"
