@@ -4,6 +4,7 @@ import classes from './Brochure.module.css';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import CardsGrid from '../../components/CardsGrid/CardsGrid';
 import Modal from '../../components/UI/Modal/Modal'
+import BrochureModal from './BrochureModal/BrochureModal'
 
 const sceanrios_dummy = [
   {
@@ -47,6 +48,9 @@ class Brochure extends Component {
     this.setState({showModal: false})
   }
 
+  saveClickedHandler = () => {
+    alert("Pam pam pam")
+  }
 
   render() {
     return (
@@ -54,7 +58,9 @@ class Brochure extends Component {
         <Modal 
           show={this.state.showModal}
           modalClosed={this.closeModalHandler}>
-            
+            <BrochureModal 
+              saved={this.saveClickedHandler}
+              canceled={this.closeModalHandler}/>
         </Modal>
         <div className={classes.BrochureName}>
           <label>Numele broșurii:</label>
