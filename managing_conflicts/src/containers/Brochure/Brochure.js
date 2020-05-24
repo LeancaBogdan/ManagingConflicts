@@ -32,7 +32,8 @@ class Brochure extends Component {
     brochure_id: "asccadsbnc",
     name: "",
     scenarios: sceanrios_dummy,
-    showModal: false
+    showModal: false,
+    selectedBrochureId: "",
   }
 
   brochureNameChangedHander = (event) => {
@@ -52,6 +53,12 @@ class Brochure extends Component {
     alert("Pam pam pam")
   }
 
+  selectedHandler = (event) => {
+    const id = event.target.value
+    console.log(id)
+    this.setState({selectedBrochureId: id})
+  }
+
   render() {
     return (
       <Auxiliary>
@@ -60,7 +67,9 @@ class Brochure extends Component {
           modalClosed={this.closeModalHandler}>
             <BrochureModal 
               saved={this.saveClickedHandler}
-              canceled={this.closeModalHandler}/>
+              canceled={this.closeModalHandler}
+              selected={this.selectedHandler}
+              selectedId={this.state.selectedBrochureId}/>
         </Modal>
         <div className={classes.BrochureName}>
           <label>Numele broșurii:</label>

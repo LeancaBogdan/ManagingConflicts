@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import classes from './EmptyCard.module.css'
-import Description from '@material-ui/icons/Description'
+import Add from '@material-ui/icons/Add'
 
 
 class EmptyCard extends Component {  
@@ -9,7 +9,7 @@ class EmptyCard extends Component {
     return (
       <div className={classes.EmptyCard} onClick={this.props.clicked}>
         <div className={classes.EmptyCardBody}>
-          <Description />
+          <Add className={classes.AddIcon}/>
         </div>
       </div>
     )
