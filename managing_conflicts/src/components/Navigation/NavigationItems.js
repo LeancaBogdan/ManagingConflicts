@@ -7,16 +7,16 @@ import ProfileImage from './NavigationItem/ProfileImage/ProfileImage';
 const navigationItems = (props) => {
   return (
     <ul className={classes.NavigationItems}>
-      <NavigationItem link="/" active={true}>
+      <NavigationItem link="/main" active={true}>
         Pagina principală
       </NavigationItem>
-      <NavigationItem link="/">
+      <NavigationItem link="/brochure">
         Creează broșură
       </NavigationItem>
-      <NavigationItem link="/">
+      <NavigationItem link="/scenario">
         Creează scenariu
       </NavigationItem>
-      <NavigationItem link="/">
+      <NavigationItem link="/settings">
         Setările contului
       </NavigationItem>
       <ProfileImage />

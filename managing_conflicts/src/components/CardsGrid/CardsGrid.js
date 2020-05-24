@@ -6,7 +6,6 @@ import EmptyCard from './EmptyCard/EmptyCard'
 
 const cardsGrid = (props) => {
   let cards = []
-  const type = props.showBrochures ? "brochure" : "scenario"
 
   if (props.showBrochures) {
     cards = props.brochures.map(brochure => {

@@ -13,7 +13,7 @@ const toggleBar = (props) => {
       <ToggleItem 
         active={!props.showBrochures}
         toggleClicked={props.toggleClicked}
-        pos="right">Șcenarii</ToggleItem>
+        pos="right">Scenarii</ToggleItem>
     </div>
   );
 }
