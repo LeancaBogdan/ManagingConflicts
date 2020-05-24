@@ -1,0 +1,14 @@
+.Add {
+  width: fit-content;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: blue;
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+.Add:hover {
+  color: rgb(55, 112, 112);
+}

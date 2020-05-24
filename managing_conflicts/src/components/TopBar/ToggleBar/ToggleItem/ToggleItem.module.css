@@ -1,0 +1,24 @@
+.ToggleItem {
+  width: 100px;
+  height: 90%;
+  text-align: center;
+  color: black;
+  background-color: burlywood;
+  font-size: larger;
+  border: 0px;
+}
+
+.Active {
+  color: white;
+  background-color: black;
+}
+
+.Left {
+  border-bottom-left-radius: 5%;
+  border-top-left-radius: 5%;
+}
+
+.Right {
+  border-bottom-right-radius: 5%;
+  border-top-right-radius: 5%;
+}

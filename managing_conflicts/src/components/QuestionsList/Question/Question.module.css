@@ -1,0 +1,21 @@
+.Question {
+  background-color: rgb(207, 201, 201);
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding-left: 5px;
+}
+
+.Icons {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.Icons svg{
+  margin: 3px;
+  cursor: pointer;
+}
