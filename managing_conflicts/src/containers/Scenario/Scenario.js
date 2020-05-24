@@ -9,14 +9,6 @@ import QuestionsList from '../../components/QuestionsList/QuestionsList';
 
 const questions = [
   {
-    question: "Ce sex crezi ca are pesonajul implicat? Ce sex crezi ca are pesonajul implicat? Ce sex crezi ca are pesonajul implicat?",
-    type: "binary",
-    options: {
-      1: "Masculin",
-      2: "Feminin"
-    }
-  },
-  {
     question: "Ce sex crezi ca are pesonajul implicat?",
     type: "binary",
     options: {
@@ -25,11 +17,19 @@ const questions = [
     }
   },
   {
-    question: "Ce sex crezi ca are pesonajul implicat?",
-    type: "binary",
+    question: "Ce parere aveti despre aceasta situatie?",
+    type: "free_answer",
+    options: null
+  },
+  {
+    question: "Indicaţi măsura în care Ioana a generat dezacorduri în grup privind acţiunile care trebuie realizate pentru îndeplinirea sarcinii",
+    type: "likert",
     options: {
-      1: "Masculin",
-      2: "Feminin"
+      1: "Deloc",
+      2: "",
+      3: "",
+      4: "",
+      5: "În mare măsură"
     }
   }
 ]
