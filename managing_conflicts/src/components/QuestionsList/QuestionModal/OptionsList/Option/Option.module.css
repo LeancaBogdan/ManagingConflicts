@@ -1,0 +1,26 @@
+.Option {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  height: 30px;
+  align-items: center;
+}
+
+.Option input {
+  height: 100%;
+  font-size: 15px;
+  margin-left: 10px;
+  padding-left: 8px;
+}
+
+.Remove {
+  color: red;
+}
+
+.Add:hover {
+  cursor: pointer;
+}
+
+.Remove:hover {
+  cursor: pointer;
+}
