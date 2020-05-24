@@ -27,16 +27,18 @@ const sceanrios_dummy = [
 
 const brochureModal = (props) => {
   const options = sceanrios_dummy.map( scenario => {
-    return <option>{scenario.name}</option>
+    return <option value={scenario.id}>{scenario.name}</option>
   })
+
+  const saveButton = props.selectedId !== "" ? <Button btnType="Success" clicked={props.saved}>Salvează</Button> : null
 
   return (
     <div>
       <h3 className={classes.ModalTitle}>Adăugați un scenariu nou</h3>
       <div className={classes.ScenarioSelector}>
         <label>Alege un scenariu existent</label>
-        <select>
-          <option>Alege un scenariu</option>
+        <select onChange={props.selected}>
+          <option value="">Alege un scenariu</option>
           {options}
         </select>
       </div>
@@ -47,9 +49,7 @@ const brochureModal = (props) => {
         <Button
           btnType="Danger"
           clicked={props.canceled}>Anulare</Button>
-        <Button
-          btnType="Success"
-          clicked={props.saved}>Salvează</Button>
+        {saveButton}
       </div>
     </div>
   )
