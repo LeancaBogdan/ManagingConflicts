@@ -10,14 +10,14 @@ const topBar = (props) => {
         <div className={classes.TopBar}>
             <Grid container justify="space-evenly" alignItems="baseline">
                 <Grid item xs={4}/>
-                <Grid item xs={4} >
+                <Grid item xs={4}>
                     <ToggleBar className={classes.Toggle}
                                showBrochures={props.showBrochures}
                                toggleClicked={props.toggleClicked}/>
                 </Grid>
                 <Grid item xs={1}>
                 </Grid>
-                <Grid item xs={3}  >
+                <Grid item xs={3}>
                     <Search search={props.search}/>
                 </Grid>
             </Grid>

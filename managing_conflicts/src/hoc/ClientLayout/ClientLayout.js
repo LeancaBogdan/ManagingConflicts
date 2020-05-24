@@ -96,7 +96,7 @@ class clientLayout extends React.Component {
   }
 
   nextScenario () {
-    if (this.state.brochure.scenarios.length == this.state.index + 1)
+    if (this.state.brochure.scenarios.length === this.state.index + 1)
     {
       return;
     }
@@ -105,7 +105,7 @@ class clientLayout extends React.Component {
   }
 
   previousScenario () {
-    if (this.state.index == 0)
+    if (this.state.index === 0)
     {
       return;
     }

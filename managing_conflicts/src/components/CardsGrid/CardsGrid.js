@@ -6,12 +6,11 @@ import EmptyCard from './EmptyCard/EmptyCard'
 
 const cardsGrid = (props) => {
   let cards = []
-  const type = props.showBrochures ? "brochure" : "scenario"
 
   if (props.showBrochures) {
     cards = props.brochures.map(brochure => {
       const scenarios =[]
-      props.scenarios.map(scenario => {
+      props.scenarios.forEach(scenario => {
         if (scenario.brochure_id === brochure.id){
           scenarios.push({id: scenario.id, name: scenario.name})
         }

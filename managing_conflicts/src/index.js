@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import createHistory from 'history/createBrowserHistory'
 
 ReactDOM.render(
+
   <React.StrictMode>
-    <App />
+    <App history={createHistory()} />
   </React.StrictMode>,
   document.getElementById('root')
 );
