@@ -6,39 +6,14 @@ import Modal from '../../components/UI/Modal/Modal';
 import Add from '../../components/UI/Add/Add';
 import QuestionModal from '../../components/QuestionsList/QuestionModal/QuestionModal';
 import QuestionsList from '../../components/QuestionsList/QuestionsList';
-
-const questions = [
-  {
-    question: "Ce sex crezi ca are pesonajul implicat?",
-    type: "binary",
-    options: {
-      1: "Masculin",
-      2: "Feminin"
-    }
-  },
-  {
-    question: "Ce parere aveti despre aceasta situatie?",
-    type: "free_answer",
-    options: null
-  },
-  {
-    question: "Indicaţi măsura în care Ioana a generat dezacorduri în grup privind acţiunile care trebuie realizate pentru îndeplinirea sarcinii",
-    type: "likert",
-    options: {
-      1: "Deloc",
-      2: "",
-      3: "",
-      4: "",
-      5: "În mare măsură"
-    }
-  }
-]
+import axios from '../../axios-instance'
 
 class Scenario extends Component {
   state = {
+    id: 'example',
     name: '',
     description: '',
-    questions: questions,
+    questions: [],
     currentQuestion: {
       question: '',
       type: '',
@@ -46,6 +21,18 @@ class Scenario extends Component {
     },
     actionType: 'create',
     showModal: false,
+  }
+
+  componentDidMount() {
+    const scenarioId = this.state.id
+    const queryParams = '?orderBy="scenario_id"&equalTo="' + scenarioId + '"';
+    axios.get('/questions.json' + queryParams)
+      .then( resp => {
+        console.log(resp)
+      })
+      .catch( error => {
+        alert("Sorry! There was a network error.")
+      })
   }
 
   addQuestionClicked = () => {
@@ -62,15 +49,25 @@ class Scenario extends Component {
   }
 
   addQuestionHandler = () => {
-    const question = {...this.state.currentQuestion}
-    const questions = [...this.state.questions]
-    questions.push(question)
     const newQuestion = {
-      question: '',
-      type: '',
-      options: null,
+      ...this.state.currentQuestion,
+      scenario_id: this.state.id
     }
-    this.setState({questions: questions, currentQuestion: newQuestion, showModal: false})
+    axios.post('/questions.json', newQuestion)
+      .then( res => {
+        const question = {...this.state.currentQuestion, id: res.data.name}
+        const questions = [...this.state.questions]
+        questions.push(question)
+        const newQuestion = {
+          question: '',
+          type: '',
+          options: null,
+        }
+        this.setState({questions: questions, currentQuestion: newQuestion, showModal: false})
+      })
+      .catch( error => {
+        alert("Sorry! There was a network error.")
+      })
   }
 
   editQuestion = () => {
@@ -104,9 +101,17 @@ class Scenario extends Component {
   }
 
   removeQuestionHandler = (index) => {
-    const updatedQuestions = [...this.state.questions]
-    updatedQuestions.splice(index, 1)
-    this.setState({questions: updatedQuestions})
+    const questionId = this.state.questions[index].id
+    axios.delete('/questions/' + questionId + '.json')
+      .then( resp => {
+        console.log(resp)
+        const updatedQuestions = [...this.state.questions]
+        updatedQuestions.splice(index, 1)
+        this.setState({questions: updatedQuestions})
+      })
+      .catch( error => {
+        alert("Sorry! There was a network error.")
+      })
   }
 
   addOptionHandler = (key) => {
