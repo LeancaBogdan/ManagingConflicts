@@ -5,11 +5,9 @@ import Layout from "./hoc/Layout/Layout";
 
 function App(props) {
     return (
-        <Layout>
-            <Router history={props.history}>
-                <Route component={Routes} />
-            </Router>
-        </Layout>
+        <Router history={props.history}>
+            <Route component={Routes} />
+        </Router>
     );
 }
 

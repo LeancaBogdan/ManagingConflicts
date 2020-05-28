@@ -9,20 +9,20 @@ import BrochureModal from './BrochureModal/BrochureModal'
 const sceanrios_dummy = [
   {
     id: 1,
-    name: "Scenario A",
-    description: "This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it.",
+    name: "Scenariul A",
+    description: "Acesta este scenariul A. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți. Acesta este scenariul A. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți. Acesta este scenariul A. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți. Acesta este scenariul A. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți. Acesta este scenariul A. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți.",
     brochure_id: 1 
   },
   {
     id: 2,
-    name: "Scenario B",
-    description: "This is scenario B. All you have to do is to complete this scenario and then submit it.",
+    name: "Scenariul B",
+    description: "Acesta este scenariul B. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți",
     brochure_id: 1
   },
   {
     id: 3,
-    name: "Scenario C",
-    description: "This is scenario C. All you have to do is to complete this scenario and then submit it.",
+    name: "Scenariul C",
+    description: "Acesta este scenariul C. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți",
     brochure_id: 1
   },
 ]

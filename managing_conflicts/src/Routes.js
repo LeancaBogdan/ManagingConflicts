@@ -6,6 +6,7 @@ import ClientLayout from "./hoc/ClientLayout/ClientLayout";
 import Brochure from "./containers/Brochure/Brochure";
 import Scenario from "./containers/Scenario/Scenario";
 import SettingsPage from "./components/SettingsPage";
+import Layout from "./hoc/Layout/Layout";
 
 export const MAIN_ROUTES = {
     mainPage: "/main",
@@ -22,19 +23,19 @@ export class Routes extends PureComponent {
             <Switch>
                 <Route path={"/"} exact render={() => <Redirect to={MAIN_ROUTES.mainPage}/>}/>
                 <Route path={MAIN_ROUTES.mainPage} exact render={(props) => {
-                    return <MainBody {...props} />
+                    return <Layout><MainBody {...props} /></Layout>
                 }}/>
                 <Route path={MAIN_ROUTES.questionnaire} exact render={(props) => {
                     return <ClientLayout {...props} guid={props.match.params.guid}/>
                 }}/>
                 <Route path={MAIN_ROUTES.createBrochure} exact render={(props) => {
-                    return <Brochure {...props}/>
+                    return <Layout><Brochure {...props}/></Layout>
                 }}/>
                 <Route path={MAIN_ROUTES.createScenario} exact render={(props) => {
-                    return <Scenario {...props}/>
+                    return <Layout><Scenario {...props}/></Layout>
                 }}/>
                 <Route path={MAIN_ROUTES.settings} exact render={(props) => {
-                    return <SettingsPage {...props}/>
+                    return <Layout><SettingsPage {...props}/></Layout>
                 }}/>
                 <Route component={PageNotFound}/>
             </Switch>

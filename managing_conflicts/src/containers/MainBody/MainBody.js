@@ -7,56 +7,56 @@ import CardsGrid from '../../components/CardsGrid/CardsGrid';
 const scenarios_dummy = [
   {
     id: 1,
-    name: "Scenario A",
-    description: "This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it. This is scenario A. All you have to do is to complete this scenario and then submit it.",
+    name: "Scenariul A",
+    description: "Acesta este scenariul A. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți. Acesta este scenariul A. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți. Acesta este scenariul A. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți. Acesta este scenariul A. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți. Acesta este scenariul A. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți .Acesta este scenariul A. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți.",
     brochure_id: 1 
   },
   {
     id: 2,
-    name: "Scenario B",
-    description: "This is scenario B. All you have to do is to complete this scenario and then submit it.",
+    name: "Scenariul B",
+    description: "Acesta este scenariul B. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți.",
     brochure_id: 1
   },
   {
     id: 3,
-    name: "Scenario C",
-    description: "This is scenario C. All you have to do is to complete this scenario and then submit it.",
+    name: "Scenariul C",
+    description: "Acesta este scenariul C. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți.",
     brochure_id: 1
   },
   {
     id: 4,
-    name: "Scenario D",
-    description: "This is scenario D. All you have to do is to complete this scenario and then submit it.",
+    name: "Scenariul D",
+    description: "Acesta este scenariul D. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți.",
     brochure_id: 2 
   },
   {
     id: 5,
-    name: "Scenario E",
-    description: "This is scenario E. All you have to do is to complete this scenario and then submit it.",
+    name: "Scenariul E",
+    description: "Acesta este scenariul E. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți.",
     brochure_id: 2 
   },
   {
     id: 6,
-    name: "Scenario F",
-    description: "This is scenario F. All you have to do is to complete this scenario and then submit it.",
+    name: "Scenariul F",
+    description: "Acesta este scenariul F. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți.",
     brochure_id: 2 
   },
   {
     id: 7,
-    name: "Scenario G",
-    description: "This is scenario G. All you have to do is to complete this scenario and then submit it.",
+    name: "Scenariul G",
+    description: "Acesta este scenariul G. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți.",
     brochure_id: 2
   },
   {
     id: 8,
-    name: "Scenario H",
-    description: "This is scenario H. All you have to do is to complete this scenario and then submit it.",
+    name: "Scenariul H",
+    description: "Acesta este scenariul H. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți.",
     brochure_id: 2 
   },
   {
     id: 9,
-    name: "Scenario I",
-    description: "This is scenario I. All you have to do is to complete this scenario and then submit it.",
+    name: "Scenariul I",
+    description: "Acesta este scenariul I. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți.",
     brochure_id: 2 
   }
 ]
@@ -64,11 +64,11 @@ const scenarios_dummy = [
 const brochures_dummy = [
   {
     id: 1,
-    name: "Brochure #1",
+    name: "Broșura #1",
   },
   {
     id: 2,
-    name: "Brochure #2",
+    name: "Broșura #2",
   }
 ]
 
