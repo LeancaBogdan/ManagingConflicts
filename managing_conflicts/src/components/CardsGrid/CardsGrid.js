@@ -16,25 +16,28 @@ const cardsGrid = (props) => {
                 }
             })
             return <Card
-                key={brochure.id}
+                id={brochure.id}
                 type="brochure"
                 name={brochure.name}
-                body={scenarios}/>
+                body={scenarios}
+                history={props.history}
+            />
         })
     } else {
         cards = props.scenarios.map(scenario => {
             return <Card
-                key={scenario.id}
+                id={scenario.id}
                 type="scenario"
                 name={scenario.name}
-                body={scenario.description}/>
+                body={scenario.description}
+                history={props.history}
+            />
         })
     }
 
     return (
         <div className={classes.CardsGrid}>
-            <EmptyCard
-                clicked={props.emptyClicked}/>
+            <EmptyCard isBrochure={props.showBrochures} history={props.history}/>
             {cards}
         </div>
     );
