@@ -10,7 +10,7 @@ import axios from '../../axios-instance'
 
 class Scenario extends Component {
   state = {
-    id: "example",
+    id: null,
     name: '',
     description: '',
     questions: [],
