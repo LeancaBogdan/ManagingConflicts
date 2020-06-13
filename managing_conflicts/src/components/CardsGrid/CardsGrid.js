@@ -16,6 +16,7 @@ const cardsGrid = (props) => {
                 }
             })
             return <Card
+                key={brochure.id}
                 id={brochure.id}
                 type="brochure"
                 name={brochure.name}
@@ -26,6 +27,7 @@ const cardsGrid = (props) => {
     } else {
         cards = props.scenarios.map(scenario => {
             return <Card
+                key={scenario.id}
                 id={scenario.id}
                 type="scenario"
                 name={scenario.name}
