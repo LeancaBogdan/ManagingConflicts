@@ -119,8 +119,8 @@ class clientLayout extends React.Component {
         <ClientHeader title={this.state.brochure.name}/>
         <ClientBody scenario={this.state.brochure.scenarios[this.state.index]} />
         <div className={classes.Buttons}>
-        <button className={classes.Button} onClick={this.previousScenario}>Back</button>
-        <button className={classes.Button} onClick={this.nextScenario}>Next</button>
+        <button className={classes.Button} onClick={this.previousScenario}>Înapoi</button>
+        <button className={classes.Button} onClick={this.nextScenario}>Înainte</button>
         </div>
       </div>
   );
