@@ -9,39 +9,58 @@ import QuestionsList from '../../components/QuestionsList/QuestionsList';
 import axios from '../../axios-instance'
 
 class Scenario extends Component {
-  state = {
-    id: null,
-    name: '',
-    description: '',
-    questions: [],
-    currentQuestion: {
-      question: '',
-      type: 'free-answer',
-      options: null,
-    },
-    actionType: 'create',
-    showModal: false,
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      id: props.id !== undefined ? props.id : null,
+      name: '',
+      description: '',
+      questions: [],
+      currentQuestion: {
+        question: '',
+        type: 'free-answer',
+        options: null,
+      },
+      actionType: 'create',
+      showModal: false,
+    }
   }
 
   componentDidMount() {
     const scenarioId = this.state.id
-    // const queryParams = '?orderBy="scenario_id"&equalTo="' + scenarioId + '"'
-    axios.get('/questions.json')
-      .then( response => {
-        const questions = []
-        for (let key in response.data) {
-          if (response.data[key].scenario_id === scenarioId ) {
-            questions.push( {
-              ...response.data[key],
-              id: key
-            })
+    if ( scenarioId === null ) {
+      const scenario = {
+        name: "",
+        description: ""
+      }
+      axios.post('/scenarios.json', scenario)
+        .then( res => {
+          this.setState({id: res.data.name})
+        })
+        .catch( error => {
+          alert("Sorry! There was a network error.")
+        })
+    } else {
+      // const queryParams = '?orderBy="scenario_id"&equalTo="' + scenarioId + '"'
+      axios.get('/questions.json')
+        .then( response => {
+          const questions = []
+          for (let key in response.data) {
+            if (response.data[key].scenario_id === scenarioId ) {
+              questions.push( {
+                ...response.data[key],
+                id: key
+              })
+            }
+            this.setState({questions: questions})
           }
-          this.setState({questions: questions})
-        }
-      })
-      .catch( error => {
-        alert("Sorry! There was a network error.")
-      })
+        })
+        .catch( error => {
+          alert("Sorry! There was a network error.")
+        })
+    }
   }
 
   addQuestionClicked = () => {
