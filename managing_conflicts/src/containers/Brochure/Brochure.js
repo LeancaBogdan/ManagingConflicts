@@ -53,18 +53,11 @@ class Brochure extends Component {
         alert("Pam pam pam")
     }
 
-<<<<<<< HEAD
   selectedHandler = (event) => {
     const id = event.target.value
     this.setState({selectedBrochureId: id})
   }
-=======
-    selectedHandler = (event) => {
-        const id = event.target.value
-        console.log(id)
-        this.setState({selectedBrochureId: id})
-    }
->>>>>>> develop
+
 
     render() {
         return (
