@@ -6,6 +6,7 @@ import Modal from '../../components/UI/Modal/Modal';
 import Add from '../../components/UI/Add/Add';
 import QuestionModal from '../../components/QuestionsList/QuestionModal/QuestionModal';
 import QuestionsList from '../../components/QuestionsList/QuestionsList';
+import Button from '../../components/UI/Button/Button'
 import axios from '../../axios-instance'
 
 class Scenario extends Component {
@@ -190,6 +191,21 @@ class Scenario extends Component {
     this.setState({description: newDescription})
   }
 
+  saveScenario = () => {
+    const scenario = {
+      name: this.state.name,
+      description: this.state.description
+    }
+    axios.put('/scenarios/' + this.state.id + '.json', scenario)
+    .then( resp => {
+      console.log(resp)
+      console.log(resp.data)
+    })
+    .catch( error => {
+      alert("Sorry! There was a network error.")
+    })
+  }
+
   render() {
     return (
       <Auxiliary>
@@ -209,7 +225,13 @@ class Scenario extends Component {
               optionEdited={this.editOptionHandler}
               
               />
-          </Modal>
+        </Modal>
+        <div className={classes.ButtonsContainer}>
+          <div className={classes.Buttons}>
+            <Button btnType="Danger">Anulare</Button>
+            <Button btnType="Success" clicked={this.saveScenario}>Salvează scenariul</Button>
+          </div>
+        </div>
         <div className={classes.ScenarioName}>
           <label>Numele scenariului:</label>
           <input 

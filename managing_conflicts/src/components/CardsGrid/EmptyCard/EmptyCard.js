@@ -10,9 +10,9 @@ class EmptyCard extends Component {
             <div className={classes.EmptyCard}
                  onClick={() => {
                      if (this.props.isBrochure) {
-                         this.props.history.push("/brochure")
+                        this.props.history.push("/brochure")
                      } else {
-                         this.props.history.push("/scenario")
+                        this.props.history.push("/scenario")
                      }
                  }}>
                 <div className={classes.EmptyCardBody}>
