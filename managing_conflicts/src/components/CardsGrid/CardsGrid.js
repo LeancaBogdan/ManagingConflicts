@@ -22,6 +22,7 @@ const cardsGrid = (props) => {
                 name={brochure.name}
                 body={scenarios}
                 history={props.history}
+                deleted={props.deleted}
             />
         })
     } else {
@@ -33,6 +34,7 @@ const cardsGrid = (props) => {
                 name={scenario.name}
                 body={scenario.description}
                 history={props.history}
+                deleted={props.deleted}
             />
         })
     }

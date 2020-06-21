@@ -12,6 +12,7 @@ const card = (props) => {
                 type={props.type}
                 title={props.name}
                 history={props.history}
+                deleted={props.deleted}
             />
             <CardBody
                 type={props.type}

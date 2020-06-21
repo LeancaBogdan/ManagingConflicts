@@ -15,7 +15,7 @@ const cardHeader = (props) => {
 
     return (
         <div className={classes.CardHeader}>
-            <Delete className={classes.LeftElement}/>
+            <Delete className={classes.LeftElement} onClick={() => props.deleted(props.id)}/>
             <p><strong>{props.title}</strong></p>
             {rightCorner}
         </div>

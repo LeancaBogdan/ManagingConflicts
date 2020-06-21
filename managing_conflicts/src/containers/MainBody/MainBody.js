@@ -56,6 +56,43 @@ class MainBody extends Component {
         });
     }
 
+    deleteCard = (id) => {
+      if ( this.state.showBrochures ) {
+        axios.delete('/brochures/' + id + '.json')
+          .then( resp => {
+            const updatedBrochures = [...this.state.brochures]
+            let index = updatedBrochures.findIndex( b => b.id === id)
+            updatedBrochures.splice(index, 1)
+            
+            const updatedFilteredBrochures = [...this.state.filteredBrochures]
+            index = updatedFilteredBrochures.findIndex( b => b.id === id)
+            updatedFilteredBrochures.splice(index, 1)
+
+            this.setState({brochures: updatedBrochures, filteredBrochures: updatedFilteredBrochures})
+          })
+          .catch( error => {
+            console.log(error)
+            alert("Sorry! There was a network error.")
+          })
+      } else {
+        axios.delete('/scenarios/' + id + '.json')
+          .then( resp => {
+            const updatedScenarios = [...this.state.scenarios]
+            let index = updatedScenarios.findIndex( s => s.id === id)
+            updatedScenarios.splice(index, 1)
+
+            const updatedFilteredScenarios = [...this.state.filteredScenarios]
+            index = updatedFilteredScenarios.findIndex( s => s.id === id)
+            updatedFilteredScenarios.splice(index, 1)
+
+            this.setState({scenarios: updatedScenarios, filteredScenarios: updatedFilteredScenarios})
+          })
+          .catch( error => {
+            alert("Sorry! There was a network error.")
+          })
+      }
+    }
+
     searchHandler = (event) => {
         const input = event.target.value
         if (this.state.showBrochures) {
@@ -86,7 +123,8 @@ class MainBody extends Component {
                     showBrochures={this.state.showBrochures}
                     brochures={this.state.filteredBrochures}
                     scenarios={this.state.filteredScenarios}
-                    history={this.props.history}/>
+                    history={this.props.history}
+                    deleted={this.deleteCard}/>
             </Auxiliary>
         );
     }
