@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import TopBar from '../../components/TopBar/TopBar';
 import CardsGrid from '../../components/CardsGrid/CardsGrid';
+import axios from '../../axios-instance'
 
 class MainBody extends Component {
     state = {
@@ -11,6 +12,31 @@ class MainBody extends Component {
         filteredBrochures: [],
         filteredScenarios: [],
         showBrochures: true,
+    }
+
+    componentDidMount = () => {
+      axios.get('/brochures.json')
+        .then( response => {
+          // TODO: get brochures from firebase
+        })
+        .catch( error => {
+          alert("Sorry! There was a network error. We couldn't fetch the data.")
+        })
+
+      axios.get('/scenarios.json')
+        .then( response => {
+          const scenarios = []
+          for (let key in response.data) {
+            scenarios.push( {
+              ...response.data[key],
+              id: key
+            })
+            this.setState({scenarios: scenarios, filteredScenarios: scenarios})
+          }
+        })
+        .catch( error => {
+          alert("Sorry! There was a network error. We couldn't fetch the data.")
+        })
     }
 
     toggleHandler = () => {

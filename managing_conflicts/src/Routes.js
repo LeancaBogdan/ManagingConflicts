@@ -38,7 +38,7 @@ export class Routes extends PureComponent {
                 <Route path={MAIN_ROUTES.settings} exact render={(props) => {
                     return <Layout><SettingsPage {...props}/></Layout>
                 }}/>
-                <Route path={MAIN_ROUTES.scenario_edit} exact render render={(props) => {
+                <Route path={MAIN_ROUTES.scenario_edit} exact render={(props) => {
                     return <Layout><Scenario {...props} id={props.match.params.scenarioId}/></Layout>
                 }}
                 />
