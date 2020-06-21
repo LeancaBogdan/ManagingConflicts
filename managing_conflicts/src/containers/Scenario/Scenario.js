@@ -35,7 +35,8 @@ class Scenario extends Component {
     if ( scenarioId === null ) {
       const scenario = {
         name: "",
-        description: ""
+        description: "",
+        complete: false
       }
       axios.post('/scenarios.json', scenario)
         .then( res => {
@@ -203,16 +204,16 @@ class Scenario extends Component {
   saveScenario = () => {
     const scenario = {
       name: this.state.name,
-      description: this.state.description
+      description: this.state.description,
+      complete: true
     }
     axios.put('/scenarios/' + this.state.id + '.json', scenario)
-    .then( resp => {
-      console.log(resp)
-      console.log(resp.data)
-    })
-    .catch( error => {
-      alert("Sorry! There was a network error.")
-    })
+      .then( resp => {
+        //TODO: redirect to back page
+      })
+      .catch( error => {
+        alert("Sorry! There was a network error.")
+      })
   }
 
   cancelSaveScenario = () => {

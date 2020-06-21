@@ -39,7 +39,7 @@ const cardsGrid = (props) => {
 
     return (
         <div className={classes.CardsGrid}>
-            <EmptyCard isBrochure={props.showBrochures} history={props.history}/>
+            <EmptyCard isBrochure={props.showBrochures} history={props.history} clicked={props.showModal}/>
             {cards}
         </div>
     );

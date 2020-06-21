@@ -4,29 +4,9 @@ import classes from './BrochureModal.module.css'
 import Button from '../../../components/UI/Button/Button'
 import Add from '../../../components/UI/Add/Add'
 
-const sceanrios_dummy = [
-  {
-    id: 1,
-    name: "Scenariul B",
-    description: "Acesta este scenariul B. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți. Acesta este scenariul B. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți. Acesta este scenariul B. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți. Acesta este scenariul B. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți.",
-    brochure_id: 1 
-  },
-  {
-    id: 2,
-    name: "Scenariul C",
-    description: "Acesta este scenariul C. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți.",
-    brochure_id: 1
-  },
-  {
-    id: 3,
-    name: "Scenariul D",
-    description: "Acesta este scenariul D. Tot ce trebuie să faceți este să completati acest scenariu si să il submiteți.",
-    brochure_id: 1
-  },
-]
 
 const brochureModal = (props) => {
-  const options = sceanrios_dummy.map( scenario => {
+  const options = [].map( scenario => {
     return <option value={scenario.id}>{scenario.name}</option>
   })
 

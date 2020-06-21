@@ -17,7 +17,16 @@ class MainBody extends Component {
     componentDidMount = () => {
       axios.get('/brochures.json')
         .then( response => {
-          // TODO: get brochures from firebase
+          const brochures = []
+          for (let key in response.data) {
+            if (response.data[key].complete === true){
+              brochures.push( {
+                ...response.data[key],
+                id: key
+              })
+            }
+            this.setState({brochures: brochures, filteredBrochures: brochures})
+          }
         })
         .catch( error => {
           alert("Sorry! There was a network error. We couldn't fetch the data.")
@@ -27,10 +36,12 @@ class MainBody extends Component {
         .then( response => {
           const scenarios = []
           for (let key in response.data) {
-            scenarios.push( {
-              ...response.data[key],
-              id: key
-            })
+            if (response.data[key].complete === true){
+              scenarios.push( {
+                ...response.data[key],
+                id: key
+              })
+            }
             this.setState({scenarios: scenarios, filteredScenarios: scenarios})
           }
         })
@@ -64,10 +75,6 @@ class MainBody extends Component {
         }
     }
 
-    emptyCardClickedHandler = () => {
-        console.log("clicked")
-    }
-
     render() {
         return (
             <Auxiliary>
@@ -79,7 +86,6 @@ class MainBody extends Component {
                     showBrochures={this.state.showBrochures}
                     brochures={this.state.filteredBrochures}
                     scenarios={this.state.filteredScenarios}
-                    emptyClicked={this.emptyCardClickedHandler}
                     history={this.props.history}/>
             </Auxiliary>
         );
