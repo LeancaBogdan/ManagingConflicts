@@ -24,6 +24,7 @@ class Scenario extends Component {
         type: 'free-answer',
         options: null,
       },
+      mode: props.id !== undefined ? 'edit' : 'create',
       actionType: 'create',
       showModal: false,
     }
@@ -44,6 +45,14 @@ class Scenario extends Component {
           alert("Sorry! There was a network error.")
         })
     } else {
+      axios.get('/scenarios/' + this.state.id + '.json')
+        .then (response => {
+          this.setState({name: response.data["name"], description: response.data["description"]})
+        })
+        .catch ( error => {
+          alert("Sorry! There was a network error.")
+        })
+
       // const queryParams = '?orderBy="scenario_id"&equalTo="' + scenarioId + '"'
       axios.get('/questions.json')
         .then( response => {
@@ -215,6 +224,10 @@ class Scenario extends Component {
     
   }
 
+  cancelEditScenario = () => {
+    //TO DO: go to back page
+  }
+
   render() {
     return (
       <Auxiliary>
@@ -237,8 +250,12 @@ class Scenario extends Component {
         </Modal>
         <div className={classes.ButtonsContainer}>
           <div className={classes.Buttons}>
-            <Button btnType="Danger" clicked={this.cancelSaveScenario}>Anulare</Button>
-            <Button btnType="Success" clicked={this.saveScenario}>Salvează scenariul</Button>
+            <Button btnType="Danger" clicked={this.state.mode === 'create' ? this.cancelSaveScenario : this.cancelEditScenario}>
+              Anulare
+            </Button>
+            <Button btnType="Success" clicked={this.saveScenario}>
+              {this.state.mode === 'create' ? "Salvează" : "Editează"}
+            </Button>
           </div>
         </div>
         <div className={classes.ScenarioName}>
