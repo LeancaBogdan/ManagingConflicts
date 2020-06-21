@@ -206,6 +206,15 @@ class Scenario extends Component {
     })
   }
 
+  cancelSaveScenario = () => {
+    axios.delete('/scenarios/' + this.state.id + '.json')
+    const questions = [...this.state.questions]
+    questions.map( question => {
+      axios.delete('/questions/' + question.id + '.json')
+    })
+    
+  }
+
   render() {
     return (
       <Auxiliary>
@@ -228,7 +237,7 @@ class Scenario extends Component {
         </Modal>
         <div className={classes.ButtonsContainer}>
           <div className={classes.Buttons}>
-            <Button btnType="Danger">Anulare</Button>
+            <Button btnType="Danger" clicked={this.cancelSaveScenario}>Anulare</Button>
             <Button btnType="Success" clicked={this.saveScenario}>Salvează scenariul</Button>
           </div>
         </div>

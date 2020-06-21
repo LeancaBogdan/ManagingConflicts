@@ -6,10 +6,10 @@ import CardsGrid from '../../components/CardsGrid/CardsGrid';
 
 class MainBody extends Component {
     state = {
-        brochures: [...brochures_dummy],
-        scenarios: [...scenarios_dummy],
-        filteredBrochures: [...brochures_dummy],
-        filteredScenarios: [...scenarios_dummy],
+        brochures: [],
+        scenarios: [],
+        filteredBrochures: [],
+        filteredScenarios: [],
         showBrochures: true,
     }
 
