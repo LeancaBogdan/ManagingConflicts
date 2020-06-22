@@ -178,6 +178,27 @@ class Brochure extends Component {
         this.props.history.push("/scenario")
     }
 
+    deleteScenario = (id) => {
+        axios.get('/brochure-scenario.json')
+          .then(resp => {
+            let bsId = null
+            for(let key in resp.data) {
+              if (resp.data[key].scenarioId === id) {
+                bsId = key
+              }
+            }
+
+            
+            axios.delete('/brochure-scenario/' + bsId + '.json')
+            .then(resp => {
+                const scenarios = [...this.state.scenarios]
+                const index = scenarios.findIndex(s => s.id === id)
+                scenarios.splice(index, 1)
+                this.setState({scenarios: scenarios})
+            })
+          })
+    }
+
     render() {
         return (
             <Auxiliary>
@@ -212,6 +233,7 @@ class Brochure extends Component {
                     scenarios={this.state.scenarios}
                     showModal={this.emptyScenarioClickedHandler}
                     history={this.props.history}
+                    deleted={this.deleteScenario}
                 />
             </Auxiliary>
         );
