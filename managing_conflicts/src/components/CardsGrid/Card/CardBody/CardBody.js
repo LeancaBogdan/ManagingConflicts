@@ -11,7 +11,7 @@ const cardBody = (props) => {
                     key={scenario.id}
                     className={classes.Scenario}
                     onClick={() => {
-                        props.history.push(`/scenario/${scenario.id}`
+                        props.history.push(`/scenarios/${scenario.id}`
                         )
                     }}>
                     {scenario.name}

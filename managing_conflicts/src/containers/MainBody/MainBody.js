@@ -11,6 +11,7 @@ class MainBody extends Component {
         scenarios: [],
         filteredBrochures: [],
         filteredScenarios: [],
+        brochureScenarios: [],
         showBrochures: true,
     }
 
@@ -47,6 +48,18 @@ class MainBody extends Component {
         })
         .catch( error => {
           alert("Sorry! There was a network error. We couldn't fetch the data.")
+        })
+
+      axios.get('/brochure-scenario.json')
+        .then(response => {
+          const brochureScenarios = []
+          for (let key in response.data) {
+            brochureScenarios.push( {
+              ...response.data[key],
+              id: key
+            })
+            this.setState({brochureScenarios: brochureScenarios})
+          }
         })
     }
 
@@ -122,6 +135,7 @@ class MainBody extends Component {
                 <CardsGrid
                     showBrochures={this.state.showBrochures}
                     brochures={this.state.filteredBrochures}
+                    brochureScenarios={this.state.brochureScenarios}
                     scenarios={this.state.filteredScenarios}
                     history={this.props.history}
                     deleted={this.deleteCard}/>

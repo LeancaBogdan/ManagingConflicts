@@ -16,6 +16,7 @@ class Brochure extends Component {
             id: props.id !== undefined ? props.id : null,
             name: '',
             scenarios: [],
+            modalScenarios: [],
             showModal: false,
             selectedScenarioId: "",
             mode: props.id !== undefined ? "edit" : "create"
@@ -33,11 +34,62 @@ class Brochure extends Component {
             axios.post('/brochures.json', brochure)
                 .then( res => {
                     this.setState({id: res.data.name})
+                    this.loadModalScenarios()
                 })
                 .catch( error => {
                     alert("Sorry! There was a network error.")
                 })
+        } else {
+            axios.get('/brochures/' + this.state.id + '.json')
+              .then (response => {
+                this.setState({name: response.data["name"]})
+              })
+              .catch ( error => {
+                alert("Sorry! There was a network error.")
+              })
+            const scenariosIds = []
+            const scenarios = []
+            axios.get('/brochure-scenario.json')
+                .then( resp => {
+                  for(let key in resp.data) {
+                      if (resp.data[key].brochureId === this.state.id) {
+                        scenariosIds.push(resp.data[key].scenarioId)
+                      }
+                  }
+
+                scenariosIds.map(scenarioId => {
+                    axios.get('scenarios/' + scenarioId + '.json')
+                        .then(resp => {
+                            scenarios.push({
+                                ...resp.data,
+                                id: scenarioId
+                            })
+                            this.setState({scenarios: scenarios})
+                            this.loadModalScenarios()
+                        })
+                })
+                
+              })  
         }
+    }
+
+    loadModalScenarios() {
+        axios.get('/scenarios.json')
+            .then (resp => {
+                const modalScenarios = []
+                const scenarios = [...this.state.scenarios]
+                for (let key in resp.data){
+                    const index = scenarios.findIndex( scenario => scenario.id === key)
+                    if (index === -1) {
+                        modalScenarios.push({
+                            id: key,
+                            name: resp.data[key].name
+                        })
+                    }
+                }
+
+                this.setState({modalScenarios: modalScenarios})
+            })
     }
 
     brochureNameChangedHander = (event) => {
@@ -54,7 +106,39 @@ class Brochure extends Component {
     }
 
     saveClickedHandler = () => {
-        this.setState({selectedScenarioId: ""})
+        const brochureSceanario = {
+            brochureId: this.state.id,
+            scenarioId: this.state.selectedScenarioId,
+        }
+        axios.post('/brochure-scenario.json', brochureSceanario)
+            .then( resp => {
+                this.reloadScenarios(resp.data.name)
+            })
+        this.setState({selectedScenarioId: "", showModal: false})
+    }
+
+    reloadScenarios(id) {
+        let scenarioId = null
+        const scenarios = [...this.state.scenarios]
+        axios.get('/brochure-scenario.json')
+            .then( resp => {
+                for(let key in resp.data) {
+                    if (key === id) {
+                        scenarioId = resp.data[key].scenarioId
+                    }
+                }
+                
+                axios.get('scenarios/' + scenarioId + '.json')
+                    .then(resp => {
+                        scenarios.push({
+                            ...resp.data,
+                            id: scenarioId
+                        })
+                        this.setState({scenarios: scenarios})
+                        this.loadModalScenarios()
+                    })
+            
+            })
     }
 
     selectedHandler = (event) => {
@@ -87,7 +171,11 @@ class Brochure extends Component {
     }
 
     goBack() {
-        this.props.history.goBack();
+        this.props.history.goBack()
+    }
+
+    newScenario = () => {
+        this.props.history.push("/scenario")
     }
 
     render() {
@@ -100,7 +188,9 @@ class Brochure extends Component {
                         saved={this.saveClickedHandler}
                         canceled={this.closeModalHandler}
                         selected={this.selectedHandler}
-                        selectedId={this.state.selectedScenarioId}/>
+                        selectedId={this.state.selectedScenarioId}
+                        createScenario={this.newScenario}
+                        scenarios={this.state.modalScenarios}/>
                 </Modal>
                 <div className={classes.ButtonsContainer}>
                     <div className={classes.Buttons}>

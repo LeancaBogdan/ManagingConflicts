@@ -6,8 +6,8 @@ import Add from '../../../components/UI/Add/Add'
 
 
 const brochureModal = (props) => {
-  const options = [].map( scenario => {
-    return <option value={scenario.id}>{scenario.name}</option>
+  const options = props.scenarios.map( scenario => {
+    return <option value={scenario.id} key={scenario.id}>{scenario.name}</option>
   })
 
   const saveButton = props.selectedId !== "" ? <Button btnType="Success" clicked={props.saved}>Salvează</Button> : null
@@ -23,7 +23,7 @@ const brochureModal = (props) => {
         </select>
       </div>
       <div>
-        <Add>Creează un scenariu nou</Add> 
+        <Add clicked={props.createScenario}>Creează un scenariu nou</Add> 
       </div>
       <div className={classes.Button}>
         <Button

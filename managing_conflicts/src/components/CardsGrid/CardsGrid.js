@@ -10,9 +10,11 @@ const cardsGrid = (props) => {
     if (props.showBrochures) {
         cards = props.brochures.map(brochure => {
             const scenarios = []
-            props.scenarios.forEach(scenario => {
-                if (scenario.brochure_id === brochure.id) {
-                    scenarios.push({id: scenario.id, name: scenario.name})
+            props.brochureScenarios.forEach(bs => {
+                if (bs.brochureId === brochure.id) {
+                    const index = props.scenarios.findIndex(scenario => scenario.id === bs.scenarioId)
+                    const name = props.scenarios[index].name
+                    scenarios.push({id: bs.scenarioId, name: name})
                 }
             })
             return <Card
