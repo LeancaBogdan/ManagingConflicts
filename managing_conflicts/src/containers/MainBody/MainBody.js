@@ -82,6 +82,7 @@ class MainBody extends Component {
             updatedFilteredBrochures.splice(index, 1)
 
             this.setState({brochures: updatedBrochures, filteredBrochures: updatedFilteredBrochures})
+            this.deleteBrochureScenariosInstances(id, "brochure")
           })
           .catch( error => {
             console.log(error)
@@ -99,9 +100,53 @@ class MainBody extends Component {
             updatedFilteredScenarios.splice(index, 1)
 
             this.setState({scenarios: updatedScenarios, filteredScenarios: updatedFilteredScenarios})
+            this.deleteBrochureScenariosInstances(id, "scenario")
           })
           .catch( error => {
             alert("Sorry! There was a network error.")
+          })
+      }
+    }
+
+    deleteBrochureScenariosInstances(id, type) {
+      const ids = []
+      if ( type === "brochure") {
+        axios.get('/brochure-scenario.json')
+          .then(resp => {
+            for(let key in resp.data) {
+              if (resp.data[key].brochureId === id) {
+                ids.push(key)
+              }
+            }
+
+            ids.map(id => {
+              axios.delete('/brochure-scenario/' + id + '.json')
+                .then(resp => {
+                  const brochureScenarios = [...this.state.brochureScenarios]
+                  const index = brochureScenarios.findIndex(bs => bs.id === id)
+                  brochureScenarios.splice(index, 1)
+                  this.setState({brochureScenarios: brochureScenarios})
+                })
+            })
+          })
+      } else {
+        axios.get('/brochure-scenario.json')
+          .then(resp => {
+            for(let key in resp.data) {
+              if (resp.data[key].scenarioId === id) {
+                ids.push(key)
+              }
+            }
+
+            ids.map(id => {
+              axios.delete('/brochure-scenario/' + id + '.json')
+                .then(resp => {
+                  const brochureScenarios = [...this.state.brochureScenarios]
+                  const index = brochureScenarios.findIndex(bs => bs.id === id)
+                  brochureScenarios.splice(index, 1)
+                  this.setState({brochureScenarios: brochureScenarios})
+                })
+            })
           })
       }
     }
