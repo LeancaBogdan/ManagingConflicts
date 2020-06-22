@@ -209,7 +209,7 @@ class Scenario extends Component {
     }
     axios.put('/scenarios/' + this.state.id + '.json', scenario)
       .then( resp => {
-        //TODO: redirect to back page
+        this.props.history.goBack()
       })
       .catch( error => {
         alert("Sorry! There was a network error.")
@@ -217,16 +217,18 @@ class Scenario extends Component {
   }
 
   cancelSaveScenario = () => {
-    axios.delete('/scenarios/' + this.state.id + '.json')
     const questions = [...this.state.questions]
     questions.map( question => {
       axios.delete('/questions/' + question.id + '.json')
     })
-    
+    axios.delete('/scenarios/' + this.state.id + '.json')
+      .then( resp => {
+        this.props.history.goBack()
+      })
   }
 
   cancelEditScenario = () => {
-    //TO DO: go to back page
+    this.props.history.goBack()
   }
 
   render() {

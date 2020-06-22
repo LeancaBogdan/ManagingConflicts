@@ -20,6 +20,8 @@ class Brochure extends Component {
             selectedScenarioId: "",
             mode: props.id !== undefined ? "edit" : "create"
         }
+
+        this.goBack = this.goBack.bind(this) 
     }
 
     componentDidMount() {
@@ -67,8 +69,7 @@ class Brochure extends Component {
         }
         axios.put('/brochures/' + this.state.id + '.json', brochure)
             .then( resp => {
-                //TODO: redirect to back page
-            })
+                this.goBack()            })
             .catch( error => {
                 alert("Sorry! There was a network error.")
             })
@@ -76,10 +77,17 @@ class Brochure extends Component {
 
     cancelSaveBrochure = () => {
         axios.delete('/brochures/' + this.state.id + '.json')
+            .then(resp => {
+                this.goBack()
+            })
     }
 
     cancelEditBrochure = () => {
+       this.goBack() 
+    }
 
+    goBack() {
+        this.props.history.goBack();
     }
 
     render() {
