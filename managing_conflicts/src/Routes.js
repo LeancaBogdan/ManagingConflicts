@@ -7,6 +7,7 @@ import Brochure from "./containers/Brochure/Brochure";
 import Scenario from "./containers/Scenario/Scenario";
 import SettingsPage from "./components/SettingsPage";
 import Layout from "./hoc/Layout/Layout";
+import EmailSender from './containers/EmailSender/EmailSender'
 
 export const MAIN_ROUTES = {
     mainPage: "/main",
@@ -16,7 +17,8 @@ export const MAIN_ROUTES = {
     createScenario: "/scenario",
     settings: "/settings",
     scenario_edit: "/scenarios/:scenarioId",
-    brochure_edit: "/brochures/:brochureId"
+    brochure_edit: "/brochures/:brochureId",
+    send_email: "/send_email/:brochureId"
 };
 
 export class Routes extends PureComponent {
@@ -44,6 +46,9 @@ export class Routes extends PureComponent {
                 }}/>
                 <Route path={MAIN_ROUTES.brochure_edit} exact render={(props) => {
                     return <Layout><Brochure {...props} id={props.match.params.brochureId}/></Layout>
+                }}/>
+                <Route path={MAIN_ROUTES.send_email} exact render={(props) => {
+                    return <Layout><EmailSender {...props} id={props.match.params.brochureId}/></Layout>
                 }}/>
                 <Route
                     render={() => <Layout><PageNotFound/> </Layout>}/>

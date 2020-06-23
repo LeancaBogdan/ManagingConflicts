@@ -171,7 +171,7 @@ class MainBody extends Component {
     }
 
     sendEmailClicked = (id) => {
-      console.log(id)
+      this.props.history.push(`/send_email/${id}`)
     }
 
     render() {
