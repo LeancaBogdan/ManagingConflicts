@@ -29,6 +29,7 @@ const cardsGrid = (props) => {
                 body={scenarios}
                 history={props.history}
                 deleted={props.deleted}
+                sendEmail={props.sendEmail}
             />
         })
     } else {

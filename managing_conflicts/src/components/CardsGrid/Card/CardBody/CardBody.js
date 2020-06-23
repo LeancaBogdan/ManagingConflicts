@@ -29,7 +29,11 @@ const cardBody = (props) => {
                 onClick={() => props.history.push(`/brochures/${props.id}`)}>
                     Editează broșura
             </div>
-            <div className={classes.MenuButton}>Trimite email</div>
+            <div 
+            className={classes.MenuButton}
+            onClick={() => props.sendClicked(props.id)}>
+                Trimite email
+            </div>
             <div className={classes.MenuButton}>Descarcă XLS</div>
         </div>
     } else {
