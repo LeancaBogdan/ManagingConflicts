@@ -4,9 +4,8 @@ import classes from './CardHeader.module.css'
 import {Delete, Edit, MoreHoriz} from '@material-ui/icons';
 
 const cardHeader = (props) => {
-
     const rightCorner = props.type === "brochure" ?
-        <MoreHoriz className={classes.RightElement}/> :
+        <MoreHoriz className={classes.RightElement} onClick={props.menuClicked}/> :
         <Edit
             className={classes.RightElement}
             onClick={() => {
