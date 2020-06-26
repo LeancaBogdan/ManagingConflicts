@@ -16,7 +16,7 @@ const sendEmail = (email, subject, message) => {
     from: "scenariideconflict@gmail.com ",
     to: email,
     subject: subject,
-    text: message
+    html: message
   }
 
   transporter.sendMail(mail, function(error, response) {

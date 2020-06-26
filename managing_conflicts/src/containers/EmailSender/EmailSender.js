@@ -4,6 +4,7 @@ import classes from './EmailSender.module.css'
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary'
 import Button from '../../components/UI/Button/Button'
 import axios from 'axios'
+import firebase_axios from '../../axios-instance'
 
 class EmailSender extends Component {
   constructor(props) {
@@ -29,11 +30,22 @@ class EmailSender extends Component {
       const data = {
         email: email.trim(),
         subject: subject,
-        message: message
+      }
+      const link_data = {
+        brochureId: this.state.brochureId,
+        completed: false
       }
 
-      axios.post('/api/sendMail', data)
+      firebase_axios.post('/links.json', link_data)
+        .then( resp => {
+          const linkId = resp.data.name
+          data.message = "<p>" + this.state.message.replace(/\n/g,"<br>") + "</p>"
+          data.message = data.message + "<br>" + "<p>Apăsați <a href='http://localhost:3000/questionnaire/" + linkId +"' style='color: blue;'>aici</a> pentru a fi redirectionat către broșură</p>"
+          axios.post('/api/sendMail', data)
+        })
     })
+
+    this.props.history.goBack()
   }
 
   handleAddressesChanged = (event) => {
