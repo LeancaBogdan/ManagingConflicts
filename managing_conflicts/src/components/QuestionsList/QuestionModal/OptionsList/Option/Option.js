@@ -18,7 +18,7 @@ const option = (props) => {
 
   return (
     <div className={classes.Option}>
-      <p>{props.index}</p>
+      <p>{parseInt(props.index) + 1}</p>
       <input value={props.optionValue} onChange={(e) => props.edited(props.index, e)}/>
       {plus}
       {minus}

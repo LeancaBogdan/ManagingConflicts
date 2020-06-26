@@ -7,7 +7,7 @@ import Option from './Option/Option'
 const optionsList = (props) => {
   const options = Object.keys(props.options)
     .map( key => {
-      const displayPlus = parseInt(key) === Object.keys(props.options).length && props.type === "likert"
+      const displayPlus = parseInt(key) === Object.keys(props.options).length - 1 && props.type === "likert"
       const displayMinus = displayPlus && Object.keys(props.options).length > 2 
       return <Option 
         key={key}

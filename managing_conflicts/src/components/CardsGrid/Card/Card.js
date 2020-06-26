@@ -1,25 +1,45 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import classes from './Card.module.css';
 import CardBody from './CardBody/CardBody';
 import CardHeader from './CardHeader/CardHeader';
 
-const card = (props) => {
-    return (
-        <div className={classes.Card}>
-            <CardHeader
-                id={props.id}
-                type={props.type}
-                title={props.name}
-                history={props.history}
-            />
-            <CardBody
-                type={props.type}
-                info={props.body}
-                history={props.history}
-            />
-        </div>
-    );
+class Card extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            showMenu: false
+        }
+    }
+
+    showMenu = () => {
+        const show = !this.state.showMenu
+        this.setState({showMenu: show})
+    }
+
+    render() {
+        return (
+            <div className={classes.Card}>
+                <CardHeader
+                    id={this.props.id}
+                    type={this.props.type}
+                    title={this.props.name}
+                    history={this.props.history}
+                    deleted={this.props.deleted}
+                    menuClicked={this.showMenu}
+                    
+                />
+                <CardBody
+                    id={this.props.id}
+                    type={this.props.type}
+                    info={this.props.body}
+                    history={this.props.history}
+                    showMenu={this.state.showMenu}
+                    sendClicked={this.props.sendEmail}
+                />
+            </div>
+        );
+    }
 }
 
-export default card;
+export default Card;

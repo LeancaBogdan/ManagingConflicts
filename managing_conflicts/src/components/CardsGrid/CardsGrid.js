@@ -10,9 +10,15 @@ const cardsGrid = (props) => {
     if (props.showBrochures) {
         cards = props.brochures.map(brochure => {
             const scenarios = []
-            props.scenarios.forEach(scenario => {
-                if (scenario.brochure_id === brochure.id) {
-                    scenarios.push({id: scenario.id, name: scenario.name})
+            const brochureScenarios = [...props.brochureScenarios]
+            brochureScenarios.map(bs => {
+                if (bs.brochureId === brochure.id) {
+                    const index = props.scenarios.findIndex(scenario => scenario.id === bs.scenarioId)
+                    if (index !== -1) {
+                        const name = props.scenarios[index].name
+                        scenarios.push({id: bs.scenarioId, name: name})
+                    }
+                    
                 }
             })
             return <Card
@@ -22,6 +28,8 @@ const cardsGrid = (props) => {
                 name={brochure.name}
                 body={scenarios}
                 history={props.history}
+                deleted={props.deleted}
+                sendEmail={props.sendEmail}
             />
         })
     } else {
@@ -33,13 +41,14 @@ const cardsGrid = (props) => {
                 name={scenario.name}
                 body={scenario.description}
                 history={props.history}
+                deleted={props.deleted}
             />
         })
     }
 
     return (
         <div className={classes.CardsGrid}>
-            <EmptyCard isBrochure={props.showBrochures} history={props.history}/>
+            <EmptyCard isBrochure={props.showBrochures} history={props.history} clicked={props.showModal}/>
             {cards}
         </div>
     );
