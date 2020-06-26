@@ -170,6 +170,10 @@ class MainBody extends Component {
         }
     }
 
+    sendEmailClicked = (id) => {
+      this.props.history.push(`/send_email/${id}`)
+    }
+
     render() {
         return (
             <Auxiliary>
@@ -183,7 +187,8 @@ class MainBody extends Component {
                     brochureScenarios={this.state.brochureScenarios}
                     scenarios={this.state.filteredScenarios}
                     history={this.props.history}
-                    deleted={this.deleteCard}/>
+                    deleted={this.deleteCard}
+                    sendEmail={this.sendEmailClicked}/>
             </Auxiliary>
         );
     }

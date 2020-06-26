@@ -14,7 +14,6 @@ class Card extends Component {
 
     showMenu = () => {
         const show = !this.state.showMenu
-        console.log(show)
         this.setState({showMenu: show})
     }
 
@@ -36,6 +35,7 @@ class Card extends Component {
                     info={this.props.body}
                     history={this.props.history}
                     showMenu={this.state.showMenu}
+                    sendClicked={this.props.sendEmail}
                 />
             </div>
         );

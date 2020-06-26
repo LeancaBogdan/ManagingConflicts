@@ -1,0 +1,73 @@
+.ButtonsContainer{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.Address {
+  position: relative;
+  margin-left: 10px;
+  margin-top: 30px;
+  height: 55px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: bold;
+}
+
+.Address textarea {
+  height: 100%;
+  width: 75%;
+  font-size: 15px;
+  margin: 50px;
+  padding-left: 8px;
+  padding-top: 8px;
+  font-family: sans-serif;
+  resize: none;
+}
+
+.Subject {
+  margin-left: 10px;
+  margin-top: 30px;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: bold;
+}
+
+.Subject input {
+  height: 100%;
+  width: 75%;
+  font-size: 15px;
+  margin: 50px;
+  padding-left: 8px;
+  margin-left: 87px;
+}
+
+.Message {
+  margin-left: 10px;
+  margin-top: 30px;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: bold;
+}
+
+.Message textarea {
+  height: 100%;
+  width: 75%;
+  font-size: 15px;
+  margin: 50px;
+  padding-left: 8px;
+  padding-top: 8px;
+  font-family: sans-serif;
+  resize: none;
+  margin-left: 105px;
+}
+
+.Instructions {
+  font-weight: bold;
+}
