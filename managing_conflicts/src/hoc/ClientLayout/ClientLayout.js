@@ -95,6 +95,36 @@ class clientLayout extends React.Component {
     this.previousScenario = this.previousScenario.bind(this);
   }
 
+  checkIndexAndUpdateButtons (index) {
+
+    document.getElementById('nextButton').style.visibility = 'visible';
+    document.getElementById('backButton').style.visibility = 'visible';
+    document.getElementById('sendButton').style.visibility = 'hidden';
+
+    console.log(this.state.brochure.scenarios.length)
+    console.log(index)
+
+    if (this.state.brochure.scenarios.length === index + 1)
+    {
+      document.getElementById('nextButton').style.visibility = 'hidden';
+      document.getElementById('sendButton').style.visibility = 'visible';
+    }
+
+    if (index === 0)
+    {
+      document.getElementById('backButton').style.visibility = 'hidden';
+
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    this.checkIndexAndUpdateButtons(this.state.index);
+  }
+
+  componentDidMount() {
+    this.checkIndexAndUpdateButtons(this.state.index);
+  }
+
   nextScenario () {
     if (this.state.brochure.scenarios.length === this.state.index + 1)
     {
@@ -102,6 +132,7 @@ class clientLayout extends React.Component {
     }
 
     this.setState({index:this.state.index+1})
+    window.scrollTo(0, 0);
   }
 
   previousScenario () {
@@ -111,6 +142,12 @@ class clientLayout extends React.Component {
     }
 
     this.setState({index:this.state.index-1})
+    window.scrollTo(0, 0);
+  }
+
+  send() {
+    alert("Aici ar trebui sa se trimita rezultatu. Va multumim pentru participare!");
+    window.scrollTo(0, 0);
   }
 
   render () {
@@ -119,8 +156,9 @@ class clientLayout extends React.Component {
         <ClientHeader title={this.state.brochure.name}/>
         <ClientBody scenario={this.state.brochure.scenarios[this.state.index]} />
         <div className={classes.Buttons}>
-        <button className={classes.Button} onClick={this.previousScenario}>Înapoi</button>
-        <button className={classes.Button} onClick={this.nextScenario}>Înainte</button>
+        <button className={classes.SendButton} id="sendButton" onClick={this.send}>Trimite</button>
+        <button id="backButton" className={classes.Button} onClick={this.previousScenario}>Înapoi</button>
+        <button id="nextButton" className={classes.Button} onClick={this.nextScenario}>Înainte</button>
         </div>
       </div>
   );
