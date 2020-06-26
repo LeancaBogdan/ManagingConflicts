@@ -26,6 +26,11 @@ class clientLayout extends React.Component {
             options: ["Deloc", "", "", "", "În mare măsură"]
           },
           {
+            type: "ranking",
+            description: "Indicaţi măsura în care Ioana a generat tensiune și animozitate în grup pe baza unor remarci personale şi aspecte de interacţiune interpersonală",
+            options: ["Deloc", "", "", "", "În mare măsură"]
+          },
+          {
             type: "text",
             description: "Cum aţi gestiona acest conflict? ",
             options: []
@@ -41,50 +46,363 @@ class clientLayout extends React.Component {
                 },
                 {
                   type: "ranking",
-                  description: "Consideră că această echipă va fi foarte productivă în sarcini viitoare. ",
+                  description: "Consideră că această echipă va fi foarte productivă în sarcini viitoare.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Consider că membrii acestei echipe sunt satisfăcuţi să lucreze împreună.",
                   options: ["", "", "", "", "", "", ""]
                 }
             ]
+          },
+          {
+            type: "multiple_ranking",
+            description: "Indicaţi măsura în care sunteţi de acord cu fiecare dintre următoarele enunţuri despre Ioana, încercuind răspunsul Dvs. pe o scală de la 1 (Dezacord puternic) la 7 (Acord puternic)",
+            options:[
+                {
+                  type: "ranking",
+                  description: "În viitor, voi evita acest membru al echipei.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Dacă fac o greşeală în munca cu acest membru al echipei, este posibil ca acesta să îmi reproşeze greşeala.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Acest membru nu ar acţiona în mod deliberat ca să îmi submineze eforturile de muncă.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Am senzaţia că acest membru îmi valorizează competenţele şi contribuţiile mele la munca noastră comună.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Am senzaţia că acest membru îmi valorizează competenţele şi contribuţiile mele la munca noastră comună.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Aş recomanda acest membru al echipei pentru post de supervizor/ lider.",
+                  options: ["", "", "", "", "", "", ""]
+                }
+            ]
+          },
+          {
+            type: "ranking",
+            description: "Cum consideraţi că se simt membrii în această echipă?",
+            options: ["Groaznic", "Nefericiţi", "Mai degrabă nemulțumiţi", "Mixt", "Mai degrabă mulțumiţi", "Mulţumiţi", "Încântaţi"]
+          },
+          {
+            type: "ranking",
+            description: "Starea de spirit descrie experiența emoțională generală care poate fi declanșată de un anumit stimul sau eveniment, iar starea de spirit poate avea o valență pozitivă sau negativă. Cum aţi descrie starea Dvs. de spirit ca membru al echipei prezentată în acest scenariu?",
+            options: ["Foarte bună tot timpul", "Mai degrabă bună ", "Mai degrabă negativă", "Negativă tot timpul"]
+          },
+          {
+            type: "ranking",
+            description: "Starea de spirit descrie experiența emoțională generală care poate fi declanșată de un anumit stimul sau eveniment, iar starea de spirit poate avea o valență pozitivă sau negativă. Cum aţi descrie starea generală de spirit a echipei din care faceţi parte în acest scenariu?",
+            options: ["Foarte bună tot timpul", "Mai degrabă bună ", "Mai degrabă negativă", "Negativă tot timpul"]
           }
         ]
       },
       {
-          name: "SCENARIUL 2",
-          description: "Imaginați-vă că faceți parte dintr-un grup care are sarcina de a decide cum trebuie să realizați transportarea eficientă a unei aparaturi militare între două locații. Dumneavoastră și cei mai mulți membri ai grupului consideraţi că ar fi bine să urmați traseul DN 107P, dar Marius sugerează că traseul mai lung pe DN 107S este mai potrivit datorită calităţii carosabilului. Ar trebui să luați o decizie de grup cât mai rapid, dar Marius spune că este mai important să discutați amănunțit argumentele și contraargumentele pentru cele două trasee (folosind și alte criterii, nu doar calitatea carosabilului) și abia apoi să decideți. ",
-          questions:[
-            {
-              type: "multiple",
-              description: "Personajul principal care creează divergenţă în grup este de sex:",
-              options: ["Feminin", "Masculin"]
-            },
-            {
-              type: "ranking",
-              description: "Indicaţi măsura în care Marius a generat dezacorduri în grup privind acţiunile care trebuie realizate pentru îndeplinirea sarcinii:",
-              options: ["Deloc", "", "", "", "În mare măsură"]
-            },
-            {
-              type: "text",
-              description: "Cum aţi gestiona acest conflict? ",
-              options: []
-            },
-            {
-              type: "multiple_ranking",
-              description: " Indicaţi măsura în care sunteţi de acord cu fiecare dintre următoarele enunţuri despre echipa din care faceţi parte în scenariul prezentat, încercuind răspunsul Dvs. pe o scală de la 1 (Dezacord puternic) la 7 (Acord puternic)",
-              options:[
-                  {
-                    type: "ranking",
-                    description: "Consider că această echipă nu va îndeplini cu succes sarcina de muncă alocată",
-                    options: ["", "", "", "", "", "", ""]
-                  },
-                  {
-                    type: "ranking",
-                    description: "Consideră că această echipă va fi foarte productivă în sarcini viitoare. ",
-                    options: ["", "", "", "", "", "", ""]
-                  }
-              ]
-            }
-          ]
-      }
+        name: "SCENARIUL 2",
+        description: "Imaginați-vă că faceți parte dintr-un grup care are sarcina de a decide cum trebuie să realizați transportarea eficientă a unei aparaturi militare între două locații. Dumneavoastră și cei mai mulți membri ai grupului consideraţi că ar fi bine să urmați traseul DN 107P, dar Marius sugerează că traseul mai lung pe DN 107S este mai potrivit datorită calităţii carosabilului. Ar trebui să luați o decizie de grup cât mai rapid, dar Marius spune că este mai important să discutați amănunțit argumentele și contraargumentele pentru cele două trasee (folosind și alte criterii, nu doar calitatea carosabilului) și abia apoi să decideți.",
+        questions: [
+          {
+            type: "multiple",
+            description: "Personajul principal care creează divergenţă în grup este de sex:",
+            options: ["Feminin", "Masculin"]
+          },
+          {
+            type: "ranking",
+            description: "Indicaţi măsura în care Marius a generat dezacorduri în grup privind acţiunile care trebuie realizate pentru îndeplinirea sarcinii",
+            options: ["Deloc", "", "", "", "În mare măsură"]
+          },
+          {
+            type: "ranking",
+            description: "Indicaţi măsura în care Marius a generat tensiune și animozitate în grup pe baza unor remarci personale şi aspecte de interacţiune interpersonală",
+            options: ["Deloc", "", "", "", "În mare măsură"]
+          },
+          {
+            type: "text",
+            description: "Cum aţi gestiona acest conflict? ",
+            options: []
+          },
+          {
+            type: "multiple_ranking",
+            description: "Indicaţi măsura în care sunteţi de acord cu fiecare dintre următoarele enunţuri despre echipa din care faceţi parte în scenariul prezentat, încercuind răspunsul Dvs. pe o scală de la 1 (Dezacord puternic) la 7 (Acord puternic)",
+            options:[
+                {
+                  type: "ranking",
+                  description: "Consider că această echipă nu va îndeplini cu succes sarcina de muncă alocată",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Consideră că această echipă va fi foarte productivă în sarcini viitoare.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Consider că membrii acestei echipe sunt satisfăcuţi să lucreze împreună.",
+                  options: ["", "", "", "", "", "", ""]
+                }
+            ]
+          },
+          {
+            type: "multiple_ranking",
+            description: "Indicaţi măsura în care sunteţi de acord cu fiecare dintre următoarele enunţuri despre Marius, încercuind răspunsul Dvs. pe o scală de la 1 (Dezacord puternic) la 7 (Acord puternic)",
+            options:[
+                {
+                  type: "ranking",
+                  description: "În viitor, voi evita acest membru al echipei.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Dacă fac o greşeală în munca cu acest membru al echipei, este posibil ca acesta să îmi reproşeze greşeala.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Acest membru nu ar acţiona în mod deliberat ca să îmi submineze eforturile de muncă.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Am senzaţia că acest membru îmi valorizează competenţele şi contribuţiile mele la munca noastră comună.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Am senzaţia că acest membru îmi valorizează competenţele şi contribuţiile mele la munca noastră comună.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Aş recomanda acest membru al echipei pentru post de supervizor/ lider.",
+                  options: ["", "", "", "", "", "", ""]
+                }
+            ]
+          },
+          {
+            type: "ranking",
+            description: "Cum consideraţi că se simt membrii în această echipă?",
+            options: ["Groaznic", "Nefericiţi", "Mai degrabă nemulțumiţi", "Mixt", "Mai degrabă mulțumiţi", "Mulţumiţi", "Încântaţi"]
+          },
+          {
+            type: "ranking",
+            description: "Starea de spirit descrie experiența emoțională generală care poate fi declanșată de un anumit stimul sau eveniment, iar starea de spirit poate avea o valență pozitivă sau negativă. Cum aţi descrie starea Dvs. de spirit ca membru al echipei prezentată în acest scenariu?",
+            options: ["Foarte bună tot timpul", "Mai degrabă bună ", "Mai degrabă negativă", "Negativă tot timpul"]
+          },
+          {
+            type: "ranking",
+            description: "Starea de spirit descrie experiența emoțională generală care poate fi declanșată de un anumit stimul sau eveniment, iar starea de spirit poate avea o valență pozitivă sau negativă. Cum aţi descrie starea generală de spirit a echipei din care faceţi parte în acest scenariu?",
+            options: ["Foarte bună tot timpul", "Mai degrabă bună ", "Mai degrabă negativă", "Negativă tot timpul"]
+          }
+        ]
+      },
+      {
+        name: "SCENARIUL 3",
+        description: "Imaginaţi-vă că faceţi parte dintr-un grup a cărui sarcină de lucru este să propună activităţi pentru desfăşurarea paradei militare care va avea loc cu ocazia a 100 de ani de existenţă a unităţii. În cadrul sesiunii de lucru, apar neînțelegeri și ostilitate deoarece Alexandra consideră că grupul are doar membrii incompetenți cu care ea nu este compatibilă. Certurile frecvente cu Alexandra îi conduc pe membrii grupului să evite să lucreze cu ea. Sentimentul este reciproc deoarece Alexandra vă spune că nu îi place să lucreze cu membrii acest grup, generând din nou tensiune în cadrul grupului",
+        questions: [
+          {
+            type: "multiple",
+            description: "Personajul principal care creează divergenţă în grup este de sex:",
+            options: ["Feminin", "Masculin"]
+          },
+          {
+            type: "ranking",
+            description: "Indicaţi măsura în care Alexandra a generat dezacorduri în grup privind acţiunile care trebuie realizate pentru îndeplinirea sarcinii",
+            options: ["Deloc", "", "", "", "În mare măsură"]
+          },
+          {
+            type: "ranking",
+            description: "Indicaţi măsura în care Alexandra a generat tensiune și animozitate în grup pe baza unor remarci personale şi aspecte de interacţiune interpersonală",
+            options: ["Deloc", "", "", "", "În mare măsură"]
+          },
+          {
+            type: "text",
+            description: "Cum aţi gestiona acest conflict? ",
+            options: []
+          },
+          {
+            type: "multiple_ranking",
+            description: "Indicaţi măsura în care sunteţi de acord cu fiecare dintre următoarele enunţuri despre echipa din care faceţi parte în scenariul prezentat, încercuind răspunsul Dvs. pe o scală de la 1 (Dezacord puternic) la 7 (Acord puternic)",
+            options:[
+                {
+                  type: "ranking",
+                  description: "Consider că această echipă nu va îndeplini cu succes sarcina de muncă alocată",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Consideră că această echipă va fi foarte productivă în sarcini viitoare.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Consider că membrii acestei echipe sunt satisfăcuţi să lucreze împreună.",
+                  options: ["", "", "", "", "", "", ""]
+                }
+            ]
+          },
+          {
+            type: "multiple_ranking",
+            description: "Indicaţi măsura în care sunteţi de acord cu fiecare dintre următoarele enunţuri despre Alexandra, încercuind răspunsul Dvs. pe o scală de la 1 (Dezacord puternic) la 7 (Acord puternic)",
+            options:[
+                {
+                  type: "ranking",
+                  description: "În viitor, voi evita acest membru al echipei.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Dacă fac o greşeală în munca cu acest membru al echipei, este posibil ca acesta să îmi reproşeze greşeala.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Acest membru nu ar acţiona în mod deliberat ca să îmi submineze eforturile de muncă.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Am senzaţia că acest membru îmi valorizează competenţele şi contribuţiile mele la munca noastră comună.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Am senzaţia că acest membru îmi valorizează competenţele şi contribuţiile mele la munca noastră comună.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Aş recomanda acest membru al echipei pentru post de supervizor/ lider.",
+                  options: ["", "", "", "", "", "", ""]
+                }
+            ]
+          },
+          {
+            type: "ranking",
+            description: "Cum consideraţi că se simt membrii în această echipă?",
+            options: ["Groaznic", "Nefericiţi", "Mai degrabă nemulțumiţi", "Mixt", "Mai degrabă mulțumiţi", "Mulţumiţi", "Încântaţi"]
+          },
+          {
+            type: "ranking",
+            description: "Starea de spirit descrie experiența emoțională generală care poate fi declanșată de un anumit stimul sau eveniment, iar starea de spirit poate avea o valență pozitivă sau negativă. Cum aţi descrie starea Dvs. de spirit ca membru al echipei prezentată în acest scenariu?",
+            options: ["Foarte bună tot timpul", "Mai degrabă bună ", "Mai degrabă negativă", "Negativă tot timpul"]
+          },
+          {
+            type: "ranking",
+            description: "Starea de spirit descrie experiența emoțională generală care poate fi declanșată de un anumit stimul sau eveniment, iar starea de spirit poate avea o valență pozitivă sau negativă. Cum aţi descrie starea generală de spirit a echipei din care faceţi parte în acest scenariu?",
+            options: ["Foarte bună tot timpul", "Mai degrabă bună ", "Mai degrabă negativă", "Negativă tot timpul"]
+          }
+        ]
+      },
+      {
+        name: "SCENARIUL 4",
+        description: "Imaginaţi-vă că faceţi parte dintr-un grup care trebuie să propună îmbunătățiri pentru regulamentul de ordine interioară. Vasile, care stârnește frecvent animozități personale atunci când lucrează în grup, vă spune că acest grup nu este suficient de competent și că el este incompatibil cu acest grad de incompetență. Ceilalți membri îl mustrează pentru limbajul dur folosit și pentru faptul că stârnește atâta discordie în grup. Vasile interpretează această situaţie considerând că este incompatibil cu Dumneavoastră şi cu ceilalţi membri ai grupului, nu doar sub aspectul competenţei, ci şi sub aspectul valorilor şi al personalităţii",
+        questions: [
+          {
+            type: "multiple",
+            description: "Personajul principal care creează divergenţă în grup este de sex:",
+            options: ["Feminin", "Masculin"]
+          },
+          {
+            type: "ranking",
+            description: "Indicaţi măsura în care Vasile a generat dezacorduri în grup privind acţiunile care trebuie realizate pentru îndeplinirea sarcinii",
+            options: ["Deloc", "", "", "", "În mare măsură"]
+          },
+          {
+            type: "ranking",
+            description: "Indicaţi măsura în care Vasile a generat tensiune și animozitate în grup pe baza unor remarci personale şi aspecte de interacţiune interpersonală",
+            options: ["Deloc", "", "", "", "În mare măsură"]
+          },
+          {
+            type: "text",
+            description: "Cum aţi gestiona acest conflict? ",
+            options: []
+          },
+          {
+            type: "multiple_ranking",
+            description: "Indicaţi măsura în care sunteţi de acord cu fiecare dintre următoarele enunţuri despre echipa din care faceţi parte în scenariul prezentat, încercuind răspunsul Dvs. pe o scală de la 1 (Dezacord puternic) la 7 (Acord puternic)",
+            options:[
+                {
+                  type: "ranking",
+                  description: "Consider că această echipă nu va îndeplini cu succes sarcina de muncă alocată",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Consideră că această echipă va fi foarte productivă în sarcini viitoare.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Consider că membrii acestei echipe sunt satisfăcuţi să lucreze împreună.",
+                  options: ["", "", "", "", "", "", ""]
+                }
+            ]
+          },
+          {
+            type: "multiple_ranking",
+            description: "Indicaţi măsura în care sunteţi de acord cu fiecare dintre următoarele enunţuri despre Vasile, încercuind răspunsul Dvs. pe o scală de la 1 (Dezacord puternic) la 7 (Acord puternic)",
+            options:[
+                {
+                  type: "ranking",
+                  description: "În viitor, voi evita acest membru al echipei.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Dacă fac o greşeală în munca cu acest membru al echipei, este posibil ca acesta să îmi reproşeze greşeala.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Acest membru nu ar acţiona în mod deliberat ca să îmi submineze eforturile de muncă.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Am senzaţia că acest membru îmi valorizează competenţele şi contribuţiile mele la munca noastră comună.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Am senzaţia că acest membru îmi valorizează competenţele şi contribuţiile mele la munca noastră comună.",
+                  options: ["", "", "", "", "", "", ""]
+                },
+                {
+                  type: "ranking",
+                  description: "Aş recomanda acest membru al echipei pentru post de supervizor/ lider.",
+                  options: ["", "", "", "", "", "", ""]
+                }
+            ]
+          },
+          {
+            type: "ranking",
+            description: "Cum consideraţi că se simt membrii în această echipă?",
+            options: ["Groaznic", "Nefericiţi", "Mai degrabă nemulțumiţi", "Mixt", "Mai degrabă mulțumiţi", "Mulţumiţi", "Încântaţi"]
+          },
+          {
+            type: "ranking",
+            description: "Starea de spirit descrie experiența emoțională generală care poate fi declanșată de un anumit stimul sau eveniment, iar starea de spirit poate avea o valență pozitivă sau negativă. Cum aţi descrie starea Dvs. de spirit ca membru al echipei prezentată în acest scenariu?",
+            options: ["Foarte bună tot timpul", "Mai degrabă bună ", "Mai degrabă negativă", "Negativă tot timpul"]
+          },
+          {
+            type: "ranking",
+            description: "Starea de spirit descrie experiența emoțională generală care poate fi declanșată de un anumit stimul sau eveniment, iar starea de spirit poate avea o valență pozitivă sau negativă. Cum aţi descrie starea generală de spirit a echipei din care faceţi parte în acest scenariu?",
+            options: ["Foarte bună tot timpul", "Mai degrabă bună ", "Mai degrabă negativă", "Negativă tot timpul"]
+          }
+        ]
+      },
       ]
     }
   };
