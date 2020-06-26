@@ -10,7 +10,7 @@ const Question = (props) => {
   return (
     <div className={classes.Question}>
     <header className={classes.QuestionHeader}>
-    <h2> {props.count}. {props.description} </h2>
+    <h4><i> {props.count}. {props.description} </i></h4>
     </header>
         {
         {
