@@ -7,8 +7,7 @@ import OptionsList from './OptionsList/OptionsList';
 
 const questionModal = (props) => {
   const title = props.action === "create" ? "Creează o întrebare nouă" : "Editează aceasta întrebare"
-  const confirmButton = props.action === "create" ? <Button btnType="Success" clicked={props.saved}>Salvează</Button> : <Button btnType="Success" clicked={props.edited}>Editează</Button> 
-
+  const confirmButton = props.action === "create" ? <Button btnType="Success" clicked={props.saved}>Salvează</Button> : <Button btnType="Success" clicked={() => props.edited(props.currentQuestion.id)}>Editează</Button> 
   let options = null
   if (props.currentQuestion.type === "binary" || props.currentQuestion.type === "likert") {
     options = <div className={classes.Options}>
