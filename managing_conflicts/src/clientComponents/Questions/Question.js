@@ -14,9 +14,9 @@ const Question = (props) => {
     </header>
         {
         {
-            "multiple": <MultipleAnswerQuestion count={props.count} description={props.description} options={props.options}/>,
-            "ranking" : <RankingQuestion count={props.count} description={props.description} options={props.options}/>,
-            "text" : <TextQuestion count={props.count} description={props.description} options={props.options}/>,
+            "binary": <MultipleAnswerQuestion count={props.count} description={props.description} options={props.options}/>,
+            "likert" : <RankingQuestion count={props.count} description={props.description} options={props.options}/>,
+            "free-answer" : <TextQuestion count={props.count} description={props.description} options={props.options}/>,
             "multiple_ranking": <MultipleRankingQuestions count={props.count} description={props.description} options={props.options}/>,
         }[props.type]
         }

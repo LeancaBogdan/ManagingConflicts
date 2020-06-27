@@ -16,9 +16,6 @@ const navigationItems = (props) => {
       <NavigationItem link="/scenario">
         Creează scenariu
       </NavigationItem>
-      <NavigationItem link="/settings">
-        Setările contului
-      </NavigationItem>
       <ProfileImage />
     </ul>
   );
