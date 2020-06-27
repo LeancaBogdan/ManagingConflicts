@@ -438,6 +438,11 @@ class clientLayout extends React.Component {
         document.getElementById('backButton').style.visibility = 'hidden';
 
       }
+
+      const checkboxes = document.querySelectorAll("input[type='checkbox']")
+      for(let key = 0; key < checkboxes.length; key++) {
+        checkboxes[key].checked = false
+      }
     }
   }
 
